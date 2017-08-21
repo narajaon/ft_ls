@@ -6,14 +6,14 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/13 16:33:44 by narajaon          #+#    #+#             */
-/*   Updated: 2017/08/21 18:44:10 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/08/21 21:00:11 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define BUFF_SIZE 2048
+# define BUFF_SIZE 20048
 # include "libftprintf/libft.h"
 # include <inttypes.h>
 # include <stdarg.h>

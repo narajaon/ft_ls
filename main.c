@@ -46,6 +46,7 @@ int		main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	stat(av[1], &ls_env.f_stat);
-	printf("%s\n", asctime(&time));
+	//printf("%s\n", ctime(&ls_env.f_stat.st_mtime));
+	ft_printf("%#x\n", ls_env.f_stat.st_mtime);
 	return (0);
 }
