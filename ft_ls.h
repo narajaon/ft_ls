@@ -12,6 +12,7 @@
 
 #define NBR 0
 #define STR 1
+#define FILE_MAX_LEN 255
 
 #define ICI printf("ICI\n");
 #define LA printf("LA\n");
@@ -29,4 +30,13 @@ typedef struct		s_tree
 	struct s_tree	*right;
 }					t_tree;
 
+typedef struct		s_ls
+{
+	struct stat		f_stat;
+}					t_ls;
+
+t_tree				*new_node(void *content, size_t size, int content_id);
+t_tree				*dup_node(t_tree *node);
+void				iter_tree_infix(t_tree *tree, void (*fun)());
+void				place_in_tree(t_tree *new_node, t_tree **tree, int (*cmp)());
 #endif

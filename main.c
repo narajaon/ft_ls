@@ -1,76 +1,51 @@
 #include "ft_ls.h"
 
-t_tree	*new_node(void *content, size_t content_size, int content_id)
+void	print_perm(struct stat *file_stat, char **av);
+void	print_link_nb(struct stat *file_stat, char **av);
+void	print_uid(struct stat *file_stat, char **av);
+void	print_gid(struct stat *file_stat, char **av);
+void	print_size(struct stat *file_stat, char **av);
+void	print_date(struct stat *file_stat)
 {
-	t_tree		*new;
+	char		*formated;
+	char		*date;
 
-	new = (t_tree *)malloc(sizeof(t_tree));
-	new->content = ft_memalloc(content_size);
-	ft_memcpy(new->content, content, content_size);
-	new->content_size = content_size;
-	new->content_id = content_id;
-	new->left = NULL;
-	new->right = NULL;
-	return (new);
+	date = ctime(&file_stat->st_mtime);
+	formated = (char *)malloc(ft_strlen(date));
+	ft_strncpy(formated, date, ft_strlen(date) - 1);
+	printf("%s ", formated);
+	free(formated);
 }
 
-t_tree	*dup_node(t_tree *node)
+void	print_name(struct stat *file_stat, char *name)
 {
-	t_tree		*dup;
-
-	dup = (t_tree *)malloc(sizeof(t_tree));
-	dup->content = ft_memalloc(node->content_size);
-	ft_memcpy(dup->content, node->content, node->content_size);
-	dup->content_size = node->content_size;
-	dup->content_id = node->content_id;
-	dup->left = NULL;
-	dup->right = NULL;
-	return (dup);
+	printf("%s\n", name);
 }
 
-void	iter_tree_infix(t_tree *tree, void (*fun)())
-{
-	if (tree != NULL)
-	{
-		iter_tree_infix(tree->left, fun);
-		fun(tree->content);
-		iter_tree_infix(tree->right, fun);
-	}
-}
 
-void	place_in_tree(t_tree *new, t_tree **tree, int (*cmp)())
+int		format_file_stat(struct stat *file_stat, char *name)
 {
-	int		ret;
-
-	if (*tree == NULL)
-		*tree = dup_node(new);
-	else
-	{
-		ret = cmp(new->content, (*tree)->content);
-		if (ret < 0)
-			place_in_tree(new, &(*tree)->left, cmp);
-		else if (ret > 0)
-			place_in_tree(new, &(*tree)->right, cmp);
-	}
+//	print_perm(file_stat);
+//	print_link_nb(file_stat);
+//	print_uid(file_stat);
+//	print_gid(file_stat);
+//	print_size(file_stat);
+//	print_date(file_stat);
+	print_date(file_stat);
+	print_name(file_stat, name);
+	return (0);
 }
 
 int		main(int ac, char **av)
 {
-	int			i;
-	t_tree		*new;
-	t_tree		*tree;
-	t_tree		*root;
+	t_ls			ls_env;
+	struct tm		time;
+	int				i;
 
 	i = 1;
-	tree = NULL;
 	if (ac < 2)
 		return (0);
-	while (av[i])
-	{
-		new = new_node(av[i], ft_strlen(av[i]), STR);
-		place_in_tree(new, &tree, &ft_strcmp);
-		i++;
-	}
-	iter_tree_infix(tree, &ft_putendl);
+	stat(av[1], &ls_env.f_stat);
+	printf("%s\n", asctime(&time));
 	return (0);
 }

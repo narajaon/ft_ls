@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/13 16:33:44 by narajaon          #+#    #+#             */
-/*   Updated: 2017/08/19 12:33:33 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/08/21 18:44:10 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct					s_flags
 	int							size;
 }								t_flags;
 
-typedef struct					s_env
+typedef struct			s_env
 {
 	t_cast						cast;
 	t_ucast						ucast;
