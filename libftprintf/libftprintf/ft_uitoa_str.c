@@ -1,26 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_uitoa_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/12 09:57:04 by narajaon          #+#    #+#             */
-/*   Updated: 2017/08/21 11:32:13 by narajaon         ###   ########.fr       */
+/*   Created: 2017/07/24 17:07:12 by narajaon          #+#    #+#             */
+/*   Updated: 2017/07/24 17:28:09 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+static int		base_len(long n)
 {
-	void	*mem;
-	size_t	i;
+	if (n < 10)
+		return (1);
+	return (base_len(n / 10) + 1);
+}
 
-	i = 0;
-	if (!(mem = (void *)malloc((size))))
-		return (NULL);
-	while (i < size)
-		*((unsigned char*)mem + i++) = 0;
-	return (mem);
+static char		*to_asci(char *str, long n)
+{
+	if (n >= 10)
+	{
+		to_asci(str, n / 10);
+		to_asci(str, n % 10);
+	}
+	if (n < 10)
+	{
+		while (*str)
+			str++;
+		*str = n + '0';
+	}
+	return (str);
+}
+
+unsigned int	ft_uitoa_str(unsigned int n, char *str)
+{
+	int		len;
+
+	len = base_len(n);
+	to_asci(str, n);
+	return (len);
 }

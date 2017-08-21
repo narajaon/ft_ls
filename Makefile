@@ -1,41 +1,36 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: narajaon <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/05/10 13:20:13 by narajaon          #+#    #+#              #
-#    Updated: 2017/07/15 13:35:31 by narajaon         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME = ft_ls
+HEAD = ft_ls.h
+PRINTF_DIR = libftprintf
+LIBFT_DIR = libft
+PRINTF_LIB = libftprintf.a
+LIBFT_LIB = libft.a
 
-NAME = rtv1
-HEAD = rtv1.h
-LIB = libft.a
-LIBDIR = libft
 SRC = *.c
-FLAG =
+FLAG = -g
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(SRC) $(HEAD)
 	@echo "Compiling \033[92m$(LIB)\033[0m..."
-	@make -C $(LIBDIR)/
-	@gcc $(SRC) $(FLAG) $(LIBDIR)/$(LIB) -o $(NAME)
+	@make -C $(LIBFT_DIR)/
+	@make -C $(PRINTF_DIR)/
+	@gcc $(SRC) $(FLAG) $(PRINTF_DIR)/$(PRINTF_LIB)\
+		$(LIBFT_DIR)/$(LIBFT_LIB) -o $(NAME)
 	@echo "$(NAME) compilation:\033[92m OK\033[0m"
 
 clean:
-	@echo "Deleting:\033[33m $(LIB) and *.o\033[0m"
+	@echo "Deleting:\033[33m $(PRINTF_LIB), $(LIBFT_LIB) and *.o\033[0m"
 	@rm -f $(OBJ)
-	@make -C $(LIBDIR)/ clean
+	@make -C $(LIBFT_DIR)/ clean
+	@make -C $(PRINTF_DIR)/ clean
 
 fclean: clean
 	@echo "Deleting:\033[33m $(NAME)\033[0m"
-	@echo "Deleting:\033[33m $(LIB)\033[0m"
+	@echo "Deleting:\033[33m $(PRINTF_LIB), $(LIBFT_LIB) and *.o\033[0m"
 	@rm -f $(NAME)
-	@rm -f $(LIBDIR)/$(LIB)
+	@make -C $(LIBFT_DIR)/ fclean
+	@make -C $(PRINTF_DIR)/ fclean
 
 re: fclean all
 
