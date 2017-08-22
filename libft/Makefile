@@ -6,7 +6,7 @@
 #    By: narajaon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/11 18:59:25 by narajaon          #+#    #+#              #
-#    Updated: 2017/06/06 17:22:54 by narajaon         ###   ########.fr        #
+#    Updated: 2017/08/22 11:56:26 by narajaon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ SRC = \
 	  ft_iseven.c \
 	  ft_print_words_tables.c \
 	  get_next_line.c \
+	  free_tab.c \
 
 CC = -Wall -Werror -Wextra
 

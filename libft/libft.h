@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 18:21:28 by narajaon          #+#    #+#             */
-/*   Updated: 2017/06/06 15:55:24 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/08/22 13:31:00 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+typedef enum		s_bool
+{
+	FALSE,
+	TRUE
+}					t_bool;
 
 typedef struct	s_list
 {
@@ -95,4 +101,5 @@ void			ft_print_words_tables(char **tab);
 long			ft_abs(long nb);
 int				get_next_line(int fd, char **line);
 int				ft_atoi_base(const char *str, int str_base);
+void			free_tab(char **tab);
 #endif

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   free_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/23 09:18:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/08/22 19:07:30 by narajaon         ###   ########.fr       */
+/*   Created: 2017/08/22 11:53:43 by narajaon          #+#    #+#             */
+/*   Updated: 2017/08/22 11:55:05 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	free_tab(char **tab)
 {
-	size_t i;
+	int		i;
 
 	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i <= n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 }

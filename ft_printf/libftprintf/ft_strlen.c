@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/23 09:18:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/08/22 19:07:30 by narajaon         ###   ########.fr       */
+/*   Created: 2017/03/09 12:21:38 by narajaon          #+#    #+#             */
+/*   Updated: 2017/08/22 16:34:41 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	const char		*ptr;
 
-	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i <= n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	ptr = str;
+	while (*ptr)
+		ptr++;
+	return (ptr - str);
 }

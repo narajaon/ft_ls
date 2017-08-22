@@ -1,6 +1,6 @@
 NAME = ft_ls
 HEAD = ft_ls.h
-PRINTF_DIR = libftprintf
+PRINTF_DIR = ft_printf
 LIBFT_DIR = libft
 PRINTF_LIB = libftprintf.a
 LIBFT_LIB = libft.a

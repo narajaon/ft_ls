@@ -1,31 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_uitoa_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/23 09:18:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/08/22 19:07:30 by narajaon         ###   ########.fr       */
+/*   Created: 2017/07/24 17:07:12 by narajaon          #+#    #+#             */
+/*   Updated: 2017/08/22 16:35:01 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+static int		base_len(long n)
 {
-	size_t i;
+	if (n < 10)
+		return (1);
+	return (base_len(n / 10) + 1);
+}
 
-	i = 0;
-	while (i < n && src[i] != '\0')
+static char		*to_asci(char *str, long n)
+{
+	if (n >= 10)
 	{
-		dest[i] = src[i];
-		i++;
+		to_asci(str, n / 10);
+		to_asci(str, n % 10);
 	}
-	while (i <= n)
+	if (n < 10)
 	{
-		dest[i] = '\0';
-		i++;
+		while (*str)
+			str++;
+		*str = n + '0';
 	}
-	return (dest);
+	return (str);
+}
+
+unsigned int	ft_uitoa_str(unsigned int n, char *str)
+{
+	int		len;
+
+	len = base_len(n);
+	to_asci(str, n);
+	return (len);
 }

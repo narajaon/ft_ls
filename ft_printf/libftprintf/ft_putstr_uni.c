@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_uni.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/23 09:18:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/08/22 19:07:30 by narajaon         ###   ########.fr       */
+/*   Created: 2017/08/12 19:01:07 by narajaon          #+#    #+#             */
+/*   Updated: 2017/08/22 16:34:20 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int			ft_putstr_uni(unsigned int *uni, char *str)
 {
-	size_t i;
+	int		ret;
+	int		i;
 
+	ret = 0;
 	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i <= n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	while (uni[i])
+		ret += ft_putuni_str(uni[i++], &str[ret]);
+	return (ret);
 }
