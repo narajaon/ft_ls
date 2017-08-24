@@ -100,11 +100,9 @@ void		print_args(char *file_name, t_ls *env)
 	print_long(&env->my_stat);
 }
 
-void		init_ls(int ac, char **av)
+void		ft_ls(int ac, char **av)
 {
 	t_ls		ls_env;
-	t_stat		*stat_ptr;
-	t_tree		*new;
 
 	//print_args(&ls_env, &print_long, &av[1]);
 	ls_env.ls_tree = NULL;
@@ -114,7 +112,7 @@ void		init_ls(int ac, char **av)
 
 int			main(int ac, char **av)
 {
-	init_ls(ac, av);
+	ft_ls(ac, av);
 //	t_tree		*tree;
 //	t_tree		*mhin;
 //
