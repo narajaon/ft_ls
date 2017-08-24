@@ -66,7 +66,8 @@ void		get_stats(char *file_name, t_ls *env)
 
 void		print_long(t_stat *my_stat)
 {
-	ft_printf("%s  %d %s  %s  %d %s %s %s %s\n", my_stat->perm_str,
+	ft_printf("%s  %d %s  %s  %d %s %s %s %s\n",
+			my_stat->perm_str,
 			my_stat->nlinks, my_stat->pwd->pw_name,
 			my_stat->grp->gr_name, my_stat->size,
 			my_stat->date.month, my_stat->date.dayth,
@@ -84,7 +85,7 @@ void		place_args_in_tree(t_tree **tree, char **av)
 
 	while (*av)
 	{
-		new = new_node(*av, ft_strlen(*av), 1);
+		new = new_node(*av, ft_strlen(*av) + 1, 1);
 		get_file_name(new->content_name, *av);
 		place_in_tree(new, tree, &ft_strcmp);
 		free(new);
@@ -104,10 +105,9 @@ void		ft_ls(int ac, char **av)
 {
 	t_ls		ls_env;
 
-	//print_args(&ls_env, &print_long, &av[1]);
 	ls_env.ls_tree = NULL;
 	place_args_in_tree(&ls_env.ls_tree, &av[1]);
-	iter_tree_infix(ls_env.ls_tree, &print_args, &ls_env);
+	iter_tree_infix(ls_env.ls_tree, &ft_putendl, &ls_env);
 }
 
 int			main(int ac, char **av)

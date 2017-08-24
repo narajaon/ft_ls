@@ -9,7 +9,7 @@ void		exit_error(int error, char opt, char *command)
 				strerror(errno), opt);
 	}
 	else if (error == ERRDIR)
-		ft_printf("ft_ls : %s: %s\n", command, strerror(errno));
+		ft_printf("%s:\nft_ls : %s: %s\n", command, command, strerror(errno));
 	else if (error == WRONG_TYPE)
 		ft_printf("ft_ls : %s: %s\n", command, strerror(errno));
 	exit(1);

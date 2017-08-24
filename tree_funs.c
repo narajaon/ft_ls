@@ -32,7 +32,7 @@ void	iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
 	if (tree != NULL)
 	{
 		iter_tree_infix(tree->left, fun, env);
-		fun(tree->content_name, env);
+		fun(tree->content, env);
 		iter_tree_infix(tree->right, fun, env);
 	}
 }
