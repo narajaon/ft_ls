@@ -56,14 +56,19 @@ t_bool		dir_file(t_ls *env, char *file_name)
 	return (FALSE);
 }
 
+void		get_stats(char *file_name, t_ls *env)
+{
+	if (stat(file_name, &env->f_stat) < 0)
+		exit_error(WRONG_TYPE, 0, file_name);
+}
+
 void		init_ls(int ac, char **av)
 {
 	t_ls		ls_env;
 	t_stat		*stat_ptr;
 	t_tree		*new;
 
-	if (stat(av[1], &ls_env.f_stat) < 0)
-		exit_error(WRONG_TYPE, 0, av[1]);
+	get_stats(av[1], &ls_env);
 	if (dir_file(&ls_env, av[1]) == FALSE)
 		reg_file(&ls_env, av[1]);
 	format_file_stat(&ls_env.f_stat,
