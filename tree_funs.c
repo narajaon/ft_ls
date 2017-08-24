@@ -27,13 +27,13 @@ t_tree	*dup_node(t_tree *node)
 	return (dup);
 }
 
-void	iter_tree_infix(t_tree *tree, void (*fun)())
+void	iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
 {
 	if (tree != NULL)
 	{
-		iter_tree_infix(tree->left, fun);
-		fun(tree->content_name);
-		iter_tree_infix(tree->right, fun);
+		iter_tree_infix(tree->left, fun, env);
+		fun(tree->content_name, env);
+		iter_tree_infix(tree->right, fun, env);
 	}
 }
 

@@ -104,7 +104,7 @@ typedef struct		s_ls
 
 t_tree				*new_node(void *content, size_t size, int content_id);
 t_tree				*dup_node(t_tree *node);
-void				iter_tree_infix(t_tree *tree, void (*fun)());
+void				iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env);
 void				place_in_tree(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
 

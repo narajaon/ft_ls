@@ -60,6 +60,44 @@ void		get_stats(char *file_name, t_ls *env)
 {
 	if (stat(file_name, &env->f_stat) < 0)
 		exit_error(WRONG_TYPE, 0, file_name);
+	format_file_stat(&env->f_stat,
+			env->my_stat.file_name, &env->my_stat);
+}
+
+void		print_long(t_stat *my_stat)
+{
+	ft_printf("%s  %d %s  %s  %d %s %s %s %s\n", my_stat->perm_str,
+			my_stat->nlinks, my_stat->pwd->pw_name,
+			my_stat->grp->gr_name, my_stat->size,
+			my_stat->date.month, my_stat->date.dayth,
+			my_stat->date.hour_min, my_stat->file_name);
+}
+
+void		print_short(t_stat *my_stat)
+{
+	ft_printf("%s\n", my_stat->file_name);
+}
+
+void		place_args_in_tree(t_tree **tree, char **av)
+{
+	t_tree		*new;
+
+	while (*av)
+	{
+		new = new_node(*av, ft_strlen(*av), 1);
+		get_file_name(new->content_name, *av);
+		place_in_tree(new, tree, &ft_strcmp);
+		free(new);
+		av++;
+	}
+}
+
+void		print_args(char *file_name, t_ls *env)
+{
+	get_stats(file_name, env);
+	if (dir_file(env, file_name) == FALSE)
+		reg_file(env, file_name);
+	print_long(&env->my_stat);
 }
 
 void		init_ls(int ac, char **av)
@@ -68,15 +106,10 @@ void		init_ls(int ac, char **av)
 	t_stat		*stat_ptr;
 	t_tree		*new;
 
-	get_stats(av[1], &ls_env);
-	if (dir_file(&ls_env, av[1]) == FALSE)
-		reg_file(&ls_env, av[1]);
-	format_file_stat(&ls_env.f_stat,
-			ls_env.my_stat.file_name, &ls_env.my_stat);
-	printf("size	|%d|\n", ls_env.my_stat.size);
-	printf("links	|%d|\n", ls_env.my_stat.nlinks);
-	printf("%s\n", ls_env.my_stat.perm_str);
-	printf("name	|%s|\n", ls_env.my_stat.file_name);
+	//print_args(&ls_env, &print_long, &av[1]);
+	ls_env.ls_tree = NULL;
+	place_args_in_tree(&ls_env.ls_tree, &av[1]);
+	iter_tree_infix(ls_env.ls_tree, &print_args, &ls_env);
 }
 
 int			main(int ac, char **av)
