@@ -1,49 +1,71 @@
 #ifndef FT_LS_H
 # define FT_LS_H
-# include <stdio.h>
-# include <stdlib.h>
 # include <sys/errno.h>
 # include <sys/stat.h>
 # include <sys/types.h>
-# include <time.h>
+# include <uuid/uuid.h>
+# include <stdlib.h>
 # include <dirent.h>
+# include <stdio.h>
+# include <time.h>
 # include <pwd.h>
 # include <grp.h>
-# include <uuid/uuid.h>
-# include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
-
-#define NBR 0
-#define STR 1
-#define FILE_MAX_LEN 255
+# include "libft/libft.h"
 
 #define ICI printf("ICI\n");
 #define LA printf("LA\n");
 #define NUM(x) printf(#x " = %d\n", x)
-#define CHA(x) printf(#x " = %c\n", x)
-#define STG(x) printf(#x " = %s\n", x)
+#define CHAR(x) printf(#x " = %c\n", x)
+#define STR(x) printf(#x " = %s\n", x)
 #define EX exit(STG("ici"));
 
-//S_ISBLK(m)
-//Test for a block special file.
-//S_ISCHR(m)
-//Test for a character special file.
-//S_ISDIR(m)
-//Test for a directory.
-//S_ISFIFO(m)
-//Test for a pipe or FIFO special file.
-//S_ISREG(m)
-//Test for a regular file.
-//S_ISLNK(m)
-//Test for a symbolic link.
-//S_ISSOCK(m)
-//Test for a socket.
-//0110100100
+
+//struct stat {
+//	dev_t     st_dev;      /* ID du périphérique contenant le fichier */
+//	ino_t     st_ino;      /* Numéro inœud */
+//	mode_t    st_mode;     /* Protection */
+//	nlink_t   st_nlink;    /* Nb liens matériels */
+//	uid_t     st_uid;      /* UID propriétaire */
+//	gid_t     st_gid;      /* GID propriétaire */
+//	dev_t     st_rdev;     /* ID périphérique (si fichier spécial) */
+//	off_t     st_size;     /* Taille totale en octets */
+//	blksize_t st_blksize;  /* Taille de bloc pour E/S */
+//	blkcnt_t  st_blocks;   /* Nombre de blocs alloués */
+//	time_t    st_atime;    /* Heure dernier accès */
+//	time_t    st_mtime;    /* Heure dernière modification */
+//	time_t    st_ctime;    /* Heure dernier changement état */
+//};
+
+//struct dirent {
+//	ino_t          d_ino;       /* numéro d'inœud */
+//	off_t          d_off;       /* décalage jusqu'à la dirent suivante */
+//	unsigned short d_reclen;    /* longueur de cet enregistrement */
+//	unsigned char  d_type;      /* type du fichier */
+//	char           d_name[256]; /* nom du fichier */
+//};
+
+typedef struct		s_lsflag
+{
+	int				l_opt;
+	int				r_opt;
+	int				a_opt;
+	int				t_opt;
+	int				capr_opt;
+	int				mask;
+}					t_lsflag;
+
+typedef enum		e_error
+{
+	USAGE,
+	ERRDIR,
+	WRONG_TYPE
+}					t_error;
 
 typedef struct		s_tree
 {
-	int				content_id;
 	size_t			content_size;
+	char			content_name[NAME_MAX];
 	void			*content;
 	struct s_tree	*left;
 	struct s_tree	*right;
@@ -64,19 +86,30 @@ typedef struct		s_stat
 	struct passwd	*pwd; //use w/ getpwuid()
 	struct group	*grp; //use w/ getgrgid()
 	t_date			date;
-	char			perm_str[11];
 	int				nlinks;
 	int				size;
+	char			perm_str[11];
+	char			file_name[NAME_MAX];
 }					t_stat;
 
 typedef struct		s_ls
 {
 	struct stat		f_stat; //use w/ stat()
 	t_stat			my_stat;
+	t_lsflag		ls_flag;
+	t_tree			*ls_tree;
+	DIR				*cur_dir;
+	struct dirent	*cur_file;
 }					t_ls;
 
 t_tree				*new_node(void *content, size_t size, int content_id);
 t_tree				*dup_node(t_tree *node);
 void				iter_tree_infix(t_tree *tree, void (*fun)());
-void				place_in_tree(t_tree *new_node, t_tree **tree, int (*cmp)());
+void				place_in_tree(t_tree *new_node,
+		t_tree **tree, int (*cmp)());
+
+t_bool		format_file_stat(struct stat *file_stat, char *name,
+		t_stat *my_stat);
+void				exit_error(int error, char opt, char *command);
+
 #endif

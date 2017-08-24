@@ -1,121 +1,92 @@
 #include "ft_ls.h"
 
-	/*
-	ft_printf("%s  %d %s  %s  %d %s %s %s %s\n", ls_env.my_stat.perm_str,
+/*
+ *	ft_printf("%s  %d %s  %s  %d %s %s %s %s\n", ls_env.my_stat.perm_str,
 			ls_env.my_stat.nlinks, ls_env.my_stat.pwd->pw_name,
 			ls_env.my_stat.grp->gr_name, ls_env.my_stat.size,
 			ls_env.my_stat.date.month, ls_env.my_stat.date.dayth,
-			ls_env.my_stat.date.hour_min, av[1]);
+			ls_env.my_stat.date.hour_min, ls_env.cur_file->d_name);
+
+			*/
+/*
+ *
+	ft_printf("l |%d| r |%d| a |%d| t |%d| R |%d|\n",
+			flags->l_opt, flags->r_opt, flags->a_opt,
+			flags->t_opt, flags->capr_opt);
 			*/
 
-void		fill_date_struct(t_date *strct, char *date)
-{
-	char		**tab;
 
-	tab = ft_strsplit(date, ' ');
-	ft_strcpy(strct->day, tab[0]);
-	ft_strcpy(strct->month, tab[1]);
-	ft_strcpy(strct->dayth, tab[2]);
-	ft_strncpy(strct->hour_min, tab[3], 5);
-	ft_strcpy(strct->sec, &tab[3][6]);
-	strct->year = ft_atoi(tab[4]);
-	free_tab(tab);
+void		struct_to_tree(t_ls *ls_env, char *file_name,
+		void *content, size_t content_size)
+{
+	//printf("|%s|\n", ls_env->ls_tree->content_name);
 }
 
-char		file_type(mode_t *st_mode)
+void		get_file_name(char *name, char *pwd)
 {
-	if (S_ISBLK(*st_mode))
-		return ('b');
-	if (S_ISCHR(*st_mode))
-		return ('c');
-	if (S_ISDIR(*st_mode))
-		return ('d');
-	if (S_ISLNK(*st_mode))
-		return ('l');
-	if (S_ISSOCK(*st_mode))
-		return ('s');
-	if (S_ISFIFO(*st_mode))
-		return ('p');
-	return ('-');
+	int		stop;
+
+	stop = ft_strlen(pwd);
+	while (pwd[stop] != '/' && stop > 0)
+		stop--;
+	stop += (pwd[stop] == '/') ? 1 : 0;
+	ft_strcpy(name, &pwd[stop]);
 }
 
-void		u_perm(struct stat *file_stat, char *perm)
+t_bool		reg_file(t_ls *env, char *file_name)
 {
-	int				i;
-	unsigned int	bin_perm;
-
-	i = 0;
-	bin_perm = 1023 & file_stat->st_mode;
-	ft_ltoa_base(bin_perm, perm, 2);
-	while (perm[i])
+	if (!S_ISDIR(env->f_stat.st_mode))
 	{
-		if (perm[i] == '0')
-			perm[i] = '-';
-		else if (i % 3 == 0)
-			perm[i] = 'r';
-		else if (i % 3 == 1)
-			perm[i] = 'w';
-		else
-			perm[i] = 'x';
-		i++;
+		get_file_name(env->my_stat.file_name, file_name);
+		return (TRUE);
 	}
+	return (FALSE);
 }
 
-void		format_perm(struct stat *file_stat, char *perm)
+t_bool		dir_file(t_ls *env, char *file_name)
 {
-	perm[0] = file_type(&file_stat->st_mode);
-	u_perm(file_stat, &perm[1]);
+	if (S_ISDIR(env->f_stat.st_mode))
+	{
+		if (!(env->cur_dir = opendir(file_name)))
+			exit_error(ERRDIR, 0, file_name);
+		env->cur_file = readdir(env->cur_dir);
+		get_file_name(env->my_stat.file_name, file_name);
+		return (TRUE);
+	}
+	return (FALSE);
 }
 
-void		get_lnk_val(nlink_t *links, int *mylinks)
+void		init_ls(int ac, char **av)
 {
-	*mylinks = *links;
-}
+	t_ls		ls_env;
+	t_stat		*stat_ptr;
+	t_tree		*new;
 
-void		parse_date(struct stat *file_stat, t_stat *my_stat)
-{
-	char		*formated;
-	char		*date;
-
-	date = ctime(&file_stat->st_mtime);
-	formated = (char *)malloc(ft_strlen(date));
-	ft_strncpy(formated, date, ft_strlen(date) - 1);
-	fill_date_struct(&my_stat->date, formated);
-	free(formated);
-}
-
-void		get_pwd_grp(struct stat *file_stat, t_stat *my_stat)
-{
-	my_stat->pwd = getpwuid(file_stat->st_uid);
-	my_stat->grp = getgrgid(file_stat->st_gid);
-}
-
-void		get_file_size(struct stat *file_stat, t_stat *my_stat)
-{
-	my_stat->size = file_stat->st_size;
-}
-
-int			format_file_stat(struct stat *file_stat, char *name, t_stat *my_stat)
-{
-	parse_date(file_stat, my_stat);
-	format_perm(file_stat, &my_stat->perm_str[0]);
-	get_lnk_val(&file_stat->st_nlink, &my_stat->nlinks);
-	get_pwd_grp(file_stat, my_stat);
-	get_file_size(file_stat, my_stat);
-	return (0);
-}
-
-void		init_ls(char **av)
-{
-	t_ls			ls_env;
-
-	stat(av[1], &ls_env.f_stat);
-	format_file_stat(&ls_env.f_stat, av[1], &ls_env.my_stat);
+	if (stat(av[1], &ls_env.f_stat) < 0)
+		exit_error(WRONG_TYPE, 0, av[1]);
+	if (dir_file(&ls_env, av[1]) == FALSE)
+		reg_file(&ls_env, av[1]);
+	format_file_stat(&ls_env.f_stat,
+			ls_env.my_stat.file_name, &ls_env.my_stat);
+	printf("size	|%d|\n", ls_env.my_stat.size);
+	printf("links	|%d|\n", ls_env.my_stat.nlinks);
+	printf("%s\n", ls_env.my_stat.perm_str);
+	printf("name	|%s|\n", ls_env.my_stat.file_name);
 }
 
 int			main(int ac, char **av)
 {
-	if (ac < 2)
-		return (0);
+	init_ls(ac, av);
+//	t_tree		*tree;
+//	t_tree		*mhin;
+//
+//	while (*av)
+//	{
+//	tree = new_node(*av, ft_strlen(*av), 3);
+//	ft_strcpy(tree->content_name, *av);
+//	place_in_tree(tree, &main, &ft_strcmp);
+//	av++;
+//	}
+//	iter_tree_infix(main, &ft_putendl);
 	return (0);
 }

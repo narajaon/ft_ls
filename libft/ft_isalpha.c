@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:27:11 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/12 08:20:25 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/08/23 13:02:32 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int		ft_isalpha(int c)
 {
 	if (ft_islower(c) || ft_isupper(c))
-		return (1);
-	return (0);
+		return (TRUE);
+	return (FALSE);
 }

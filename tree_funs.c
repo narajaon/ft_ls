@@ -8,14 +8,12 @@ t_tree	*new_node(void *content, size_t content_size, int content_id)
 	new->content = ft_memalloc(content_size);
 	ft_memcpy(new->content, content, content_size);
 	new->content_size = content_size;
-	new->content_id = content_id;
 	new->left = NULL;
 	new->right = NULL;
 	return (new);
 }
 
 t_tree	*dup_node(t_tree *node)
-
 {
 	t_tree		*dup;
 
@@ -23,7 +21,7 @@ t_tree	*dup_node(t_tree *node)
 	dup->content = ft_memalloc(node->content_size);
 	ft_memcpy(dup->content, node->content, node->content_size);
 	dup->content_size = node->content_size;
-	dup->content_id = node->content_id;
+	ft_strcpy(dup->content_name, node->content_name);
 	dup->left = NULL;
 	dup->right = NULL;
 	return (dup);
@@ -34,7 +32,7 @@ void	iter_tree_infix(t_tree *tree, void (*fun)())
 	if (tree != NULL)
 	{
 		iter_tree_infix(tree->left, fun);
-		fun(tree->content);
+		fun(tree->content_name);
 		iter_tree_infix(tree->right, fun);
 	}
 }
@@ -47,7 +45,7 @@ void	place_in_tree(t_tree *new, t_tree **tree, int (*cmp)())
 		*tree = dup_node(new);
 	else
 	{
-		ret = cmp(new->content, (*tree)->content);
+		ret = cmp(new->content_name, (*tree)->content_name);
 		if (ret < 0)
 			place_in_tree(new, &(*tree)->left, cmp);
 		else if (ret > 0)
