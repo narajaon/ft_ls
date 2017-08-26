@@ -72,20 +72,6 @@ void		print_short(char *file_name, t_stat *my_stat)
 	ft_printf("%s\n", file_name);
 }
 
-void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)()) //if we get file names as arg
-{
-	t_tree		*new;
-
-	while (*av)
-	{
-		new = new_node(*av, ft_strlen(*av) + 1, 1);
-		get_file_name(new->content_name, *av);
-		place_in_tree(new, tree, cmp);
-		free(new);
-		av++;
-	}
-}
-
 void		print_args(char *file_name, t_ls *env)
 {
 	get_stats(file_name, env);
@@ -103,7 +89,7 @@ void		*apply_print_opt(t_lsflag *flags)
 
 void		*apply_sort_opt(t_lsflag *flags)
 {
-	if (flags->r_opt != 0)
+	if (flags->r_opt != 0 && flags->t_opt == 0)
 		return (&ft_rev_strcmp);
 	return (&ft_strcmp);
 }
@@ -122,8 +108,11 @@ void		ft_ls(int ac, char **av)
 		av++;
 	print_ls = apply_print_opt(&ls_env.ls_flag);
 	cmp = apply_sort_opt(&ls_env.ls_flag);
-	place_args_in_tree(&ls_env.ls_tree, av, cmp);
-	iter_tree_infix(ls_env.ls_tree, print_ls, &ls_env);
+	if (*av != NULL)
+		place_args_in_tree(&ls_env.ls_tree, av, cmp);
+	else
+		place_files_in_tree(&ls_env, ".", cmp);
+	iter_tree_infix(ls_env.ls_tree, &print_args, &ls_env);
 }
 
 int			main(int ac, char **av)

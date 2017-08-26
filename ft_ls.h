@@ -109,10 +109,14 @@ void				place_in_tree(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
 
 t_bool				valid_flag(char *av, t_lsflag *flags);
+void				get_file_name(char *name, char *pwd);
 
 t_bool		format_file_stat(struct stat *file_stat, char *name,
 		t_stat *my_stat);
 void				exit_error(int error, char opt, char *command);
 int					ft_rev_strcmp(char *s1, char *s2);
 
+
+void		place_files_in_tree(t_ls *env, char *dir_name, int (*cmp)());
+void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)());
 #endif
