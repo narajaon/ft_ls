@@ -94,6 +94,25 @@ void		*apply_sort_opt(t_lsflag *flags)
 	return (&ft_strcmp);
 }
 
+void		print_cur_dir(char *dir_name, int (cmp)())
+{
+	t_ls		ls_env;
+
+	place_files_in_tree(&ls_env, dir_name, cmp);
+	iter_tree_infix(ls_env.ls_tree, &print_args, &ls_env);
+}
+
+void		recursive_print(t_ls *env, t_tree *tree,
+		char *dir_name, void (*print)())
+{
+	if (tree != NULL)
+	{
+		recursive_print(env, tree->left, dir_name, print);
+		print_cur_dir(tree->content, &ft_strcmp);
+		recursive_print(env, tree->right, dir_name, print);
+	}
+}
+
 void		ft_ls(int ac, char **av)
 {
 	t_ls		ls_env;
@@ -108,11 +127,12 @@ void		ft_ls(int ac, char **av)
 		av++;
 	print_ls = apply_print_opt(&ls_env.ls_flag);
 	cmp = apply_sort_opt(&ls_env.ls_flag);
-	if (*av != NULL)
-		place_args_in_tree(&ls_env.ls_tree, av, cmp);
-	else
-		place_files_in_tree(&ls_env, ".", cmp);
-	iter_tree_infix(ls_env.ls_tree, &print_args, &ls_env);
+	//if (*av != NULL)
+	//	place_args_in_tree(&ls_env.ls_tree, av, cmp);
+	//else
+	place_files_in_tree(&ls_env, *av, cmp);
+	//iter_tree_infix(ls_env.ls_tree, print_ls, &ls_env);
+	//recursive_print(&ls_env, print_ls, cmp);
 }
 
 int			main(int ac, char **av)

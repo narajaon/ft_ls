@@ -18,6 +18,7 @@ void		place_files_in_tree(t_ls *env, char *dir_name, int (*cmp)())
 	}
 }
 
+//need to use place_files_in_tree when *av is a directory
 void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)())
 {
 	t_tree		*new;
