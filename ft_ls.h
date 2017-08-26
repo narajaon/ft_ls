@@ -18,7 +18,7 @@
 #define NUM(x) printf(#x " = %d\n", x)
 #define CHAR(x) printf(#x " = %c\n", x)
 #define STR(x) printf(#x " = %s\n", x)
-#define EX exit(STG("ici"));
+#define EX exit(STR("ici"));
 
 
 //struct stat {
@@ -108,8 +108,11 @@ void				iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env);
 void				place_in_tree(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
 
+t_bool				valid_flag(char *av, t_lsflag *flags);
+
 t_bool		format_file_stat(struct stat *file_stat, char *name,
 		t_stat *my_stat);
 void				exit_error(int error, char opt, char *command);
+int					ft_rev_strcmp(char *s1, char *s2);
 
 #endif

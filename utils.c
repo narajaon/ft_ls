@@ -15,6 +15,20 @@ void		exit_error(int error, char opt, char *command)
 	exit(1);
 }
 
+int			ft_rev_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] - s2[i])
+			return ((unsigned char)s2[i] - (unsigned char)s1[i]);
+		i++;
+	}
+	return (0);
+}
+
 //0000001 l
 //0000010 R
 //0000100 a

@@ -15,13 +15,6 @@
 			flags->t_opt, flags->capr_opt);
 			*/
 
-
-void		struct_to_tree(t_ls *ls_env, char *file_name,
-		void *content, size_t content_size)
-{
-	//printf("|%s|\n", ls_env->ls_tree->content_name);
-}
-
 void		get_file_name(char *name, char *pwd)
 {
 	int		stop;
@@ -74,12 +67,12 @@ void		print_long(t_stat *my_stat)
 			my_stat->date.hour_min, my_stat->file_name);
 }
 
-void		print_short(t_stat *my_stat)
+void		print_short(char *file_name, t_stat *my_stat)
 {
-	ft_printf("%s\n", my_stat->file_name);
+	ft_printf("%s\n", file_name);
 }
 
-void		place_args_in_tree(t_tree **tree, char **av)
+void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)()) //if we get file names as arg
 {
 	t_tree		*new;
 
@@ -87,7 +80,7 @@ void		place_args_in_tree(t_tree **tree, char **av)
 	{
 		new = new_node(*av, ft_strlen(*av) + 1, 1);
 		get_file_name(new->content_name, *av);
-		place_in_tree(new, tree, &ft_strcmp);
+		place_in_tree(new, tree, cmp);
 		free(new);
 		av++;
 	}
@@ -101,18 +94,41 @@ void		print_args(char *file_name, t_ls *env)
 	print_long(&env->my_stat);
 }
 
+void		*apply_print_opt(t_lsflag *flags)
+{
+	if (flags->l_opt != 0)
+		return (&print_args);
+	return (&print_short);
+}
+
+void		*apply_sort_opt(t_lsflag *flags)
+{
+	if (flags->r_opt != 0)
+		return (&ft_rev_strcmp);
+	return (&ft_strcmp);
+}
+
 void		ft_ls(int ac, char **av)
 {
 	t_ls		ls_env;
+	void		(*print_ls)();
+	int			(*cmp)();
 
 	ls_env.ls_tree = NULL;
-	place_args_in_tree(&ls_env.ls_tree, &av[1]);
-	iter_tree_infix(ls_env.ls_tree, &ft_putendl, &ls_env);
+	ls_env.ls_flag.mask = 0;
+	if (*av == NULL || **av != '-')
+		ft_bzero(&ls_env.ls_flag, sizeof(ls_env.ls_flag));
+	while (valid_flag(*av, &ls_env.ls_flag) == TRUE)
+		av++;
+	print_ls = apply_print_opt(&ls_env.ls_flag);
+	cmp = apply_sort_opt(&ls_env.ls_flag);
+	place_args_in_tree(&ls_env.ls_tree, av, cmp);
+	iter_tree_infix(ls_env.ls_tree, print_ls, &ls_env);
 }
 
 int			main(int ac, char **av)
 {
-	ft_ls(ac, av);
+	ft_ls(ac, &av[1]);
 //	t_tree		*tree;
 //	t_tree		*mhin;
 //
