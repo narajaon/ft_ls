@@ -89,7 +89,8 @@ typedef struct		s_stat
 	int				nlinks;
 	int				size;
 	char			perm_str[11];
-	char			file_name[NAME_MAX + 1];
+	char			file_name[PATH_MAX];
+	t_bool			is_root;
 }					t_stat;
 
 typedef struct		s_ls
@@ -100,11 +101,14 @@ typedef struct		s_ls
 	t_tree			*ls_tree;
 	DIR				*cur_dir;
 	struct dirent	*cur_file;
+	int				(*cmp)();
+	void			(*print)();
 }					t_ls;
 
 t_tree				*new_node(void *content, size_t size, int content_id);
 t_tree				*dup_node(t_tree *node);
 void				iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env);
+void				iter_node_infix(t_tree *tree, void (*fun)(), t_ls *env);
 void				place_in_tree(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
 
@@ -115,10 +119,17 @@ t_bool				format_file_stat(struct stat *file_stat, char *name,
 		t_stat *my_stat);
 void				exit_error(int error, char opt, char *command);
 int					ft_rev_strcmp(char *s1, char *s2);
+void				add_to_path(char *path, char *file_name);
+void				remove_from_path(char *path);
 
 
 void				place_files_in_tree(t_ls *env, char *dir_name,
 		int (*cmp)());
 void				place_args_in_tree(t_tree **tree,
 		char **av, int (*cmp)());
+t_tree		*create_new_tree(t_ls *env, char *dir_name);
+
+
+void		print_short(char *file_name, t_ls *env);
+void		recursive_print(t_tree *cur_dir, t_ls *env);
 #endif

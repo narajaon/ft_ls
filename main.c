@@ -67,9 +67,12 @@ void		print_long(t_stat *my_stat)
 			my_stat->date.hour_min, my_stat->file_name);
 }
 
-void		print_short(char *file_name, t_stat *my_stat)
+void		print_short(char *file_name, t_ls *env)
 {
-	ft_printf("%s\n", file_name);
+	get_stats(file_name, env);
+	if (dir_file(env, file_name) == FALSE)
+		reg_file(env, file_name);
+	ft_printf("%s\n", env->my_stat.file_name);
 }
 
 void		print_args(char *file_name, t_ls *env)
@@ -102,22 +105,9 @@ void		print_cur_dir(char *dir_name, int (cmp)())
 	iter_tree_infix(ls_env.ls_tree, &print_args, &ls_env);
 }
 
-void		recursive_print(t_ls *env, t_tree *tree,
-		char *dir_name, void (*print)())
-{
-	if (tree != NULL)
-	{
-		recursive_print(env, tree->left, dir_name, print);
-		print_cur_dir(tree->content, &ft_strcmp);
-		recursive_print(env, tree->right, dir_name, print);
-	}
-}
-
 void		ft_ls(int ac, char **av)
 {
-	t_ls		ls_env;
-	void		(*print_ls)();
-	int			(*cmp)();
+	static t_ls		ls_env;
 
 	ls_env.ls_tree = NULL;
 	ls_env.ls_flag.mask = 0;
@@ -125,14 +115,17 @@ void		ft_ls(int ac, char **av)
 		ft_bzero(&ls_env.ls_flag, sizeof(ls_env.ls_flag));
 	while (valid_flag(*av, &ls_env.ls_flag) == TRUE)
 		av++;
-	print_ls = apply_print_opt(&ls_env.ls_flag);
-	cmp = apply_sort_opt(&ls_env.ls_flag);
-	//if (*av != NULL)
-	//	place_args_in_tree(&ls_env.ls_tree, av, cmp);
-	//else
-	place_files_in_tree(&ls_env, *av, cmp);
-	//iter_tree_infix(ls_env.ls_tree, print_ls, &ls_env);
-	//recursive_print(&ls_env, print_ls, cmp);
+	ls_env.print = apply_print_opt(&ls_env.ls_flag);
+	ls_env.cmp = apply_sort_opt(&ls_env.ls_flag);
+	/*
+	if (*av != NULL)
+		place_args_in_tree(&ls_env.ls_tree, av, ls_env.cmp);
+	else
+		place_files_in_tree(&ls_env, *av, ls_env.cmp);
+		*/
+	ls_env.ls_tree = create_new_tree(&ls_env, av[0]);
+	//iter_tree_infix(ls_env.ls_tree, ls_env.print, &ls_env);
+	recursive_print(ls_env.ls_tree, &ls_env);
 }
 
 int			main(int ac, char **av)

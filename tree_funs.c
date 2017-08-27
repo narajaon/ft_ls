@@ -37,6 +37,16 @@ void	iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
 	}
 }
 
+void	iter_node_infix(t_tree *tree, void (*fun)(), t_ls *env)
+{
+	if (tree != NULL)
+	{
+		iter_tree_infix(tree->left, fun, env);
+		fun(tree, env);
+		iter_tree_infix(tree->right, fun, env);
+	}
+}
+
 void	place_in_tree(t_tree *new, t_tree **tree, int (*cmp)())
 {
 	int		ret;
