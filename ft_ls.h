@@ -89,7 +89,8 @@ typedef struct		s_stat
 	int				nlinks;
 	int				size;
 	char			perm_str[11];
-	char			file_name[PATH_MAX];
+	char			file_name[NAME_MAX];
+	char			path_name[PATH_MAX];
 	t_bool			is_root;
 }					t_stat;
 

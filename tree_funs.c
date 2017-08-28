@@ -41,9 +41,9 @@ void	iter_node_infix(t_tree *tree, void (*fun)(), t_ls *env)
 {
 	if (tree != NULL)
 	{
-		iter_tree_infix(tree->left, fun, env);
+		iter_node_infix(tree->left, fun, env);
 		fun(tree, env);
-		iter_tree_infix(tree->right, fun, env);
+		iter_node_infix(tree->right, fun, env);
 	}
 }
 

@@ -124,6 +124,8 @@ void		ft_ls(int ac, char **av)
 		place_files_in_tree(&ls_env, *av, ls_env.cmp);
 		*/
 	ls_env.ls_tree = create_new_tree(&ls_env, av[0]);
+	//add_to_path(ls_env.my_stat.path_name, av[0]);
+	//STR(ls_env.my_stat.path_name);
 	//iter_tree_infix(ls_env.ls_tree, ls_env.print, &ls_env);
 	recursive_print(ls_env.ls_tree, &ls_env);
 }
