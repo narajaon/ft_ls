@@ -117,17 +117,17 @@ void		ft_ls(int ac, char **av)
 		av++;
 	ls_env.print = apply_print_opt(&ls_env.ls_flag);
 	ls_env.cmp = apply_sort_opt(&ls_env.ls_flag);
-	/*
 	if (*av != NULL)
 		place_args_in_tree(&ls_env.ls_tree, av, ls_env.cmp);
 	else
 		place_files_in_tree(&ls_env, *av, ls_env.cmp);
-		*/
-	ls_env.ls_tree = create_new_tree(&ls_env, av[0]);
+	//ls_env.ls_tree = create_new_tree(&ls_env, av[0]);
 	//add_to_path(ls_env.my_stat.path_name, av[0]);
 	//STR(ls_env.my_stat.path_name);
-	//iter_tree_infix(ls_env.ls_tree, ls_env.print, &ls_env);
-	recursive_print(ls_env.ls_tree, &ls_env);
+	if (ls_env.ls_flag.capr_opt == 0)
+		iter_tree_infix(ls_env.ls_tree, ls_env.print, &ls_env);
+	else
+		recursive_print(ls_env.ls_tree, &ls_env);
 }
 
 int			main(int ac, char **av)
