@@ -20,6 +20,11 @@ void		get_file_name(char *name, char *pwd)
 	int		stop;
 
 	stop = ft_strlen(pwd);
+	if (pwd[stop - 1] == '/')
+	{
+		while (pwd[--stop] == '/')
+			pwd[stop] = '\0';
+	}
 	while (pwd[stop] != '/' && stop > 0)
 		stop--;
 	stop += (pwd[stop] == '/') ? 1 : 0;
@@ -120,14 +125,8 @@ void		ft_ls(int ac, char **av)
 	if (*av != NULL)
 		place_args_in_tree(&ls_env.ls_tree, av, ls_env.cmp);
 	else
-		place_files_in_tree(&ls_env, *av, ls_env.cmp);
-	//ls_env.ls_tree = create_new_tree(&ls_env, av[0]);
-	//add_to_path(ls_env.my_stat.path_name, av[0]);
-	//STR(ls_env.my_stat.path_name);
-	if (ls_env.ls_flag.capr_opt == 0)
-		iter_tree_infix(ls_env.ls_tree, ls_env.print, &ls_env);
-	else
-		recursive_print(ls_env.ls_tree, &ls_env);
+		place_files_in_tree(&ls_env, ".", ls_env.cmp);
+	recursive_print(ls_env.ls_tree, &ls_env);
 }
 
 int			main(int ac, char **av)
