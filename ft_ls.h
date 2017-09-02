@@ -116,22 +116,31 @@ void				place_in_tree(t_tree *new_node,
 
 t_bool				valid_flag(char *av, t_lsflag *flags);
 void				get_file_name(char *name, char *pwd);
+void				get_stats(char *file_name, t_ls *env);
 
 t_bool				format_file_stat(struct stat *file_stat, char *name,
 		t_stat *my_stat);
 void				exit_error(int error, char opt, char *command);
 int					ft_rev_strcmp(char *s1, char *s2);
+int					ft_int_cmp(int a, int b);
+int					ft_int_rev_cmp(int a, int b);
 void				add_to_path(char *path, char *file_name);
 void				remove_from_path(char *path);
+void				get_file_name(char *name, char *pwd);
+t_bool				reg_file(t_ls *env, char *file_name);
+t_bool				dir_file(t_ls *env, char *file_name);
 
 
 void				place_files_in_tree(t_ls *env, char *dir_name,
 		int (*cmp)());
 void				place_args_in_tree(t_tree **tree,
 		char **av, int (*cmp)());
-t_tree		*create_new_tree(t_ls *env, char *dir_name);
+t_tree				*create_new_tree(t_ls *env, char *dir_name);
 
 
-void		print_short(char *file_name, t_ls *env);
-void		recursive_print(t_tree *cur_dir, t_ls *env);
+void				print_short(char *file_name, t_ls *env);
+void				recursive_print(t_tree *cur_dir, t_ls *env);
+void				print_args(char *file_name, t_ls *env);
+void				print_short_a_opt(char *file_name, t_ls *env);
+void				print_short(char *file_name, t_ls *env);
 #endif

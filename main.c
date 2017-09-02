@@ -14,22 +14,6 @@
 			flags->t_opt, flags->capr_opt);
 			*/
 
-void		get_file_name(char *name, char *pwd)
-{
-	int		stop;
-
-	stop = ft_strlen(pwd);
-	if (pwd[stop - 1] == '/')
-	{
-		while (pwd[--stop] == '/')
-			pwd[stop] = '\0';
-	}
-	while (pwd[stop] != '/' && stop > 0)
-		stop--;
-	stop += (pwd[stop] == '/') ? 1 : 0;
-	ft_strcpy(name, &pwd[stop]);
-}
-
 t_bool		reg_file(t_ls *env, char *file_name)
 {
 	if (!S_ISDIR(env->f_stat.st_mode))
@@ -57,59 +41,7 @@ void		get_stats(char *file_name, t_ls *env)
 {
 	if (stat(file_name, &env->f_stat) < 0)
 		exit_error(WRONG_TYPE, 0, file_name);
-	format_file_stat(&env->f_stat,
-			env->my_stat.file_name, &env->my_stat);
-}
-
-void		print_long(t_stat *my_stat)
-{
-	if (*my_stat->file_name != '.')
-	{
-		printf("%s% 4d %s  %s  %d %s %s %s %s\n",
-				my_stat->perm_str,
-				my_stat->nlinks, my_stat->pwd->pw_name,
-				my_stat->grp->gr_name, my_stat->size,
-				my_stat->date.month, my_stat->date.dayth,
-				my_stat->date.hour_min, my_stat->file_name);
-	}
-}
-
-void		print_long_a_opt(t_stat *my_stat)
-{
-	printf("%s% 4d %s  %s  %d %s %s %s %s\n",
-			my_stat->perm_str,
-			my_stat->nlinks, my_stat->pwd->pw_name,
-			my_stat->grp->gr_name, my_stat->size,
-			my_stat->date.month, my_stat->date.dayth,
-			my_stat->date.hour_min, my_stat->file_name);
-}
-
-void		print_short_a_opt(char *file_name, t_ls *env)
-{
-	get_stats(file_name, env);
-	if (dir_file(env, file_name) == FALSE)
-		reg_file(env, file_name);
-	ft_printf("%s\n", env->my_stat.file_name);
-}
-
-void		print_short(char *file_name, t_ls *env)
-{
-	get_stats(file_name, env);
-	if (dir_file(env, file_name) == FALSE)
-		reg_file(env, file_name);
-	if (*env->my_stat.file_name != '.')
-		ft_printf("%s\n", env->my_stat.file_name);
-}
-
-void		print_args(char *file_name, t_ls *env)
-{
-	get_stats(file_name, env);
-	if (dir_file(env, file_name) == FALSE)
-		reg_file(env, file_name);
-	if (env->ls_flag.l_opt != 0 && env->ls_flag.a_opt != 0)
-		print_long_a_opt(&env->my_stat);
-	else
-		print_long(&env->my_stat);
+	format_file_stat(&env->f_stat, env->my_stat.file_name, &env->my_stat);
 }
 
 void		*apply_print_opt(t_lsflag *flags)
@@ -123,6 +55,10 @@ void		*apply_print_opt(t_lsflag *flags)
 
 void		*apply_sort_opt(t_lsflag *flags)
 {
+	if (flags->t_opt != 0 && flags->r_opt == 0)
+		return (&ft_int_cmp);
+	if (flags->t_opt != 0 && flags->r_opt != 0)
+		return (&ft_int_rev_cmp);
 	if (flags->r_opt != 0 && flags->t_opt == 0)
 		return (&ft_rev_strcmp);
 	return (&ft_strcmp);
@@ -155,16 +91,5 @@ void		ft_ls(int ac, char **av)
 int			main(int ac, char **av)
 {
 	ft_ls(ac, &av[1]);
-//	t_tree		*tree;
-//	t_tree		*mhin;
-//
-//	while (*av)
-//	{
-//	tree = new_node(*av, ft_strlen(*av), 3);
-//	ft_strcpy(tree->content_name, *av);
-//	place_in_tree(tree, &main, &ft_strcmp);
-//	av++;
-//	}
-//	iter_tree_infix(main, &ft_putendl);
 	return (0);
 }

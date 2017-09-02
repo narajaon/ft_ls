@@ -28,6 +28,16 @@ int			ft_rev_strcmp(char *s1, char *s2)
 	return (0);
 }
 
+int			ft_int_cmp(int a, int b)
+{
+	return (a - b);
+}
+
+int			ft_int_rev_cmp(int a, int b)
+{
+	return (b - a);
+}
+
 void		add_to_path(char *path, char *file_name)
 {
 	if (*path != 0 && path[ft_strlen(path) - 1] != '/')
@@ -43,6 +53,22 @@ void		remove_from_path(char *path)
 	while (path[stop] != '/' && stop > 0)
 		stop--;
 	path[stop] = '\0';
+}
+
+void		get_file_name(char *name, char *pwd)
+{
+	int		stop;
+
+	stop = ft_strlen(pwd);
+	if (pwd[stop - 1] == '/')
+	{
+		while (pwd[--stop] == '/')
+			pwd[stop] = '\0';
+	}
+	while (pwd[stop] != '/' && stop > 0)
+		stop--;
+	stop += (pwd[stop] == '/') ? 1 : 0;
+	ft_strcpy(name, &pwd[stop]);
 }
 
 //0000001 l
