@@ -64,7 +64,7 @@ void		get_stats(char *file_name, t_ls *env)
 
 void		print_long(t_stat *my_stat)
 {
-	ft_printf("%s  %d %s  %s  %d %s %s %s %s\n",
+	printf("%s% 3d %s  %s  %d %s %s %s %s\n",
 			my_stat->perm_str,
 			my_stat->nlinks, my_stat->pwd->pw_name,
 			my_stat->grp->gr_name, my_stat->size,
@@ -126,6 +126,7 @@ void		ft_ls(int ac, char **av)
 		place_args_in_tree(&ls_env.ls_tree, av, ls_env.cmp);
 	else
 		place_files_in_tree(&ls_env, ".", ls_env.cmp);
+	ft_strcpy(ls_env.my_stat.path_name, ls_env.ls_tree->content);
 	recursive_print(ls_env.ls_tree, &ls_env);
 }
 

@@ -31,7 +31,7 @@ int			ft_rev_strcmp(char *s1, char *s2)
 
 void		add_to_path(char *path, char *file_name)
 {
-	if (*path != 0)
+	if (*path != 0 && path[ft_strlen(path) - 1] != '/')
 		ft_strcat(path, "/");
 	ft_strcat(path, file_name);
 }

@@ -1,0 +1,1101 @@
+
+.git:
+
+.git/branches:
+
+.git/hooks:
+
+.git/info:
+
+.git/logs:
+
+.git/logs/refs:
+
+.git/logs/refs/heads:
+
+.git/logs/refs/remotes:
+
+.git/logs/refs/remotes/origin:
+
+.git/objects:
+drwxr-xr-x 15 narajaon  2017_paris  510 Sep 2 12:34 .git
+drwxr-xr-x 15 narajaon  2017_paris  510 Sep 2 12:34 .
+drwxr-xr-x 18 narajaon  2017_paris  612 Sep 2 12:34 ..
+-rw-r--r--  1 narajaon  2017_paris  36 Aug 27 18:26 COMMIT_EDITMSG
+-rw-r--r--  1 narajaon  2017_paris  95 Sep 2 10:36 FETCH_HEAD
+-rw-r--r--  1 narajaon  2017_paris  23 Aug 13 18:00 HEAD
+-rw-r--r--  1 narajaon  2017_paris  41 Sep 2 10:36 ORIG_HEAD
+drwxr-xr-x  2 narajaon  2017_paris  68 Aug 13 18:00 branches
+-rw-r--r--  1 narajaon  2017_paris  307 Aug 13 18:00 config
+-rw-r--r--  1 narajaon  2017_paris  73 Aug 13 18:00 description
+drwxr-xr-x 12 narajaon  2017_paris  408 Aug 13 18:00 hooks
+-rw-r--r--  1 narajaon  2017_paris  24108 Sep 2 12:34 index
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:52 info
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 logs
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 objects
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 19 12:55 refs
+drwxr-xr-x  2 narajaon  2017_paris  68 Aug 13 18:00 .
+drwxr-xr-x 15 narajaon  2017_paris  510 Sep 2 12:34 ..
+drwxr-xr-x 12 narajaon  2017_paris  408 Aug 13 18:00 .
+drwxr-xr-x 15 narajaon  2017_paris  510 Sep 2 12:34 ..
+-rwxr-xr-x  1 narajaon  2017_paris  478 Aug 13 18:00 applypatch-msg.sample
+-rwxr-xr-x  1 narajaon  2017_paris  896 Aug 13 18:00 commit-msg.sample
+-rwxr-xr-x  1 narajaon  2017_paris  189 Aug 13 18:00 post-update.sample
+-rwxr-xr-x  1 narajaon  2017_paris  424 Aug 13 18:00 pre-applypatch.sample
+-rwxr-xr-x  1 narajaon  2017_paris  1642 Aug 13 18:00 pre-commit.sample
+-rwxr-xr-x  1 narajaon  2017_paris  1348 Aug 13 18:00 pre-push.sample
+-rwxr-xr-x  1 narajaon  2017_paris  4951 Aug 13 18:00 pre-rebase.sample
+-rw-r--r--  1 narajaon  2017_paris  544 Aug 13 18:00 pre-receive.sample
+-rwxr-xr-x  1 narajaon  2017_paris  1239 Aug 13 18:00 prepare-commit-msg.sample
+-rwxr-xr-x  1 narajaon  2017_paris  3610 Aug 13 18:00 update.sample
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:52 .
+drwxr-xr-x 15 narajaon  2017_paris  510 Sep 2 12:34 ..
+-rw-r--r--  1 narajaon  2017_paris  243 Aug 21 14:52 exclude
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 .
+drwxr-xr-x 15 narajaon  2017_paris  510 Sep 2 12:34 ..
+-rw-r--r--  1 narajaon  2017_paris  2841 Sep 2 10:36 HEAD
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 refs
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 .
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 ..
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 heads
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 remotes
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 ..
+-rw-r--r--  1 narajaon  2017_paris  2841 Sep 2 10:36 master
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 ..
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 origin
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 ..
+-rw-r--r--  1 narajaon  2017_paris  2558 Sep 2 10:36 master
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 .
+drwxr-xr-x 15 narajaon  2017_paris  510 Sep 2 12:34 ..
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 00
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 17:53 01
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 02
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 26 17:57 05
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 07
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 20:46 0b
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 0c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 0d
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 0f
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 24 19:55 11
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 27 18:26 13
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 15
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 24 19:56 16
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 19:55 17
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 21 21:01 19
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 1a
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 1d
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 22 20:46 21
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 22
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 23
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 24
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 25
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 26
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 28
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 29
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 22 20:46 2a
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 2b
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 2c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 2e
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 30
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 31
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 34
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 20:58 36
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 19:55 37
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 39
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 3a
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 3c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 3d
+drwxr-xr-x  7 narajaon  2017_paris  238 Aug 27 18:26 3f
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 41
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 42
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 45
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 47
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 17:57 48
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 27 18:26 49
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 21 14:51 4c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 21:01 4e
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 20:58 4f
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 50
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 19:55 51
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 22 20:46 55
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 56
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 5b
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 5c
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 60
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 62
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 21:01 63
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 64
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 27 18:26 66
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 27 18:26 6a
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 20:58 6b
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 27 18:26 6c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 6d
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 17:27 71
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 72
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 17:53 75
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 15:20 7a
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 7b
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 7c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 7d
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 17:57 80
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 84
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 27 18:26 85
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 17:57 86
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 87
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 20:46 88
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 22 20:46 89
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 21 14:51 8a
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 20:58 8e
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 15:20 8f
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 90
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 91
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 93
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 94
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 96
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 97
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 98
+drwxr-xr-x  7 narajaon  2017_paris  238 Aug 22 20:46 9a
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 9b
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 9c
+.git/objects/00:
+
+.git/objects/01:
+
+.git/objects/02:
+
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 19:56 9d
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 9e
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 a3
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 a5
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 20:46 a6
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 a7
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 a8
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 aa
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 ac
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 ad
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 19:55 b1
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 b5
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 b6
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 b7
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 b8
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 bc
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 bd
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 be
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 bf
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 c3
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 c4
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 c5
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 19:56 c6
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 c7
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 21:01 c8
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 22 20:46 c9
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 cf
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 d0
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 d2
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 17:27 d3
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 d4
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 19:55 d5
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 19:55 d6
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 22 20:46 d7
+drwxr-xr-x  7 narajaon  2017_paris  238 Aug 27 18:26 d8
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 20:58 db
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 21 14:51 dc
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 df
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 e4
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 e5
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 e6
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 e7
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 17:57 e8
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 ea
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 ec
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 19:55 ed
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 19:55 ee
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 17:57 f0
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 20:46 f1
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 f2
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 f3
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 24 20:58 f4
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 f5
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 f7
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 f8
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 fa
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 21:01 fc
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 19:55 fd
+drwxr-xr-x  2 narajaon  2017_paris  68 Aug 13 18:00 info
+drwxr-xr-x  4 narajaon  2017_paris  136 Sep 2 10:36 pack
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1073 Aug 21 14:51 212c621588f7ec121a33ee8da599e5f40f0f33
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 17:53 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  897 Aug 24 17:53 580fd91354bcd91b59da579c914545bc992c48
+-r--r--r--  1 narajaon  2017_paris  316 Aug 19 12:55 596114281a86e870316947c5d28eb5e54f800e
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  518 Aug 21 14:51 6571302eff1795d62203f384fe56a91e38b9db
+-r--r--r--  1 narajaon  2
+.git/objects/05:
+
+.git/objects/07:
+
+.git/objects/0b:
+
+.git/objects/0c:
+
+.git/objects/0d:
+
+.git/objects/0f:
+
+.git/objects/11:
+
+.git/objects/13:
+
+.git/objects/15:
+
+.git/objects/16:
+
+.git/objects/17:
+
+.git/objects/19:
+
+.git/objects/1a:
+
+.git/objects/1d:
+017_paris  383 Aug 19 12:55 f2b99261cce89b19c9955d2e974612715fac52
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 26 17:57 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  368 Aug 19 12:55 0b3f40f728fba88cbc2026c514608a36e937c8
+-r--r--r--  1 narajaon  2017_paris  13692 Aug 26 17:57 357d53bf3229b19485ce6c463c50947d64026e
+-r--r--r--  1 narajaon  2017_paris  764 Aug 22 20:46 52d3eabc5b3f6eaa7ed4753a2a1ad01710f177
+-r--r--r--  1 narajaon  2017_paris  24 Aug 22 20:46 87393512205bda20ff67312cb256c73f319a51
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  312 Aug 21 14:51 4c6931136c7147852fcf6d29c6376fb1841c82
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  599 Aug 21 20:46 727772a9559103be5246f9750e00fd13ed2e7f
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  364 Aug 19 12:55 dd9dbfe5a78347b3a73c16ea2ce3148df719aa
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1072 Aug 22 20:46 964af0a104f6b570bb42ff26213c050d1b7b50
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  2018 Aug 22 20:46 7fde59b8010254e4f0306e83d023628e22b578
+-r--r--r--  1 narajaon  2017_paris  752 Aug 22 20:46 85f13564d3df6841cbdb7dca27548f23d64a53
+-r--r--r--  1 narajaon  2017_paris  392 Aug 26 15:20 d9184188eda4c0160a815cbcaa00de75fbe0aa
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 24 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1157 Aug 22 20:46 20d24bd040f207effb179503ebba5fce1f44bc
+-r--r--r--  1 narajaon  2017_paris  363 Aug 19 12:55 84dab95e65b71ab93d74f32d924eef949bba88
+-r--r--r--  1 narajaon  2017_paris  339 Aug 24 19:55 d3b93a52bbe6f88208f0128f7e0c0cdea3888e
+-r--r--r--  1 narajaon  2017_paris  319 Aug 21 14:51 f560bb91af0d44ce858b9008fd8e1fb57a7489
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 27 18:26 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  195 Aug 27 18:26 2f84691270bc28cb39107de9aefa16ac184af2
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1119 Aug 19 12:55 d8a45a58efc3d04e98194376ea495b92ed986f
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 24 19:56 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  356 Aug 21 14:51 534122022072998ec4c1d6727bcb9bcfcd24e4
+-r--r--r--  1 narajaon  2017_paris  589 Aug 19 12:55 f35ef9840015900fcdd16d3bfc03ad470b0abf
+-r--r--r--  1 narajaon  2017_paris  339 Aug 24 19:56 f4ac27511301fbf361caeeec67686a3328c58c
+-r--r--r--  1 narajaon  2017_paris  352 Aug 21 14:51 f4d9be7f86126f346e7f17c511b95c9c829040
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  401 Aug 26 19:55 0e4ca3afa45f8d774dd6e779095f2883279d24
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 21 21:01 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  581 Aug 22 20:46 16c218c644e0a1c6c022505fdd01de34d2e039
+-r--r--r--  1 narajaon  2017_paris  192 Aug 21 21:01 2148391b6309ebef70f86d6232065f5aebc8d4
+-r--r--r--  1 narajaon  2017_paris  373 Aug 19 12:55 de2f897dbbeb66afb01a55c6b384d7c1b9bb64
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  367 Aug 21 14:51 24fb8f20029e4d4842900b5d373dffd7166287
+-r--r--r--  1 narajaon  2017_paris  384 Aug 19 12:55 79a5374d9236ce20efedbaef86f4cb24662c7c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 n
+.git/objects/21:
+
+.git/objects/22:
+
+.git/objects/23:
+
+.git/objects/24:
+
+.git/objects/25:
+
+.git/objects/26:
+
+.git/objects/28:
+
+.git/objects/29:
+
+.git/objects/2a:
+
+.git/objects/2b:
+
+.git/objects/2c:
+
+.git/objects/2e:
+
+.git/objects/30:
+
+.git/objects/31:
+
+.git/objects/34:
+
+.git/objects/36:
+
+.git/objects/37:
+arajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  282 Aug 19 12:55 a832e7c792118acbbda6f7b0ac881c3419e094
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  298 Aug 22 20:46 26e7fa64cf7af61a1f7010a30bc803b0e0f268
+-r--r--r--  1 narajaon  2017_paris  286 Aug 19 12:55 853f3e731b3d96145d07eea269e75e688c2b6b
+-r--r--r--  1 narajaon  2017_paris  915 Aug 19 12:55 8b36ecaab851811f0e653eeaf8ed947f3c14c2
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  598 Aug 22 20:46 2de691f5b9d669c878f0a104c5a12d0b82415b
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  90 Aug 21 14:51 737af98f0df1715e5ad4fef09065aa4f642afb
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  724 Aug 22 20:46 bc9d25a77ef49231c0a1492f056508ae166cbf
+-r--r--r--  1 narajaon  2017_paris  2227 Aug 21 14:51 d4ebc78529c3b62d1524dcf80c9be27644bef6
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1984 Aug 19 12:55 efe63a6ea59754e1bd7c50235541e029e7c258
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  337 Aug 19 12:55 711b463341afc4d6a897ff55ccd3ff3ba79307
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  213 Aug 19 12:55 cd66bc6ad8fd497077d78ed655c3206bbc6417
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  50 Aug 21 14:51 3d80d609708aa69315428fa308ea1d7ccbb78a
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  291 Aug 21 14:51 62d4e7c7c1d1c9d5ca3a86bd8ab17347086464
+-r--r--r--  1 narajaon  2017_paris  589 Aug 22 20:46 87909c6b7de42229f27310b73b66ee33a36ca9
+-r--r--r--  1 narajaon  2017_paris  300 Aug 22 20:46 ed1512bc76d8e0768db0c0083fd942e0b301dd
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  297 Aug 22 20:46 2b8aedcaf16e4f0b0c0018ee33e5ed768a8529
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  430 Aug 22 20:46 8daced9e277f2d81f65934ca0e4ca4dbe8f861
+-r--r--r--  1 narajaon  2017_paris  946 Aug 22 20:46 bd30d032954cbc963cc96a5a7feaafcf3bfe77
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  339 Aug 24 17:27 2698c588975d38f5e375d8c7252f3148ef1381
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  191 Aug 21 14:51 e67089143d6f58c85750787c53447c3fd48a66
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  339 Aug 21 14:51 8ee3334dfb9ec0b0e3f55ba7232a02055ca205
+-r--r--r--  1 narajaon  2017_paris  577 Aug 21 14:51 a12e03abe5125f2dcb8d8fff4735127d0ee6c7
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  514 Aug 19 12:55 5d11ae1d599aa130b07b3daf5f7f7f8f660fe0
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 20:58 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  190 Aug 24 20:58 8e900ec4858441731031aa1d2b8e1fc6a474cc
+drwxr-xr-x  4 narajaon  2017_paris  13
+.git/objects/39:
+
+.git/objects/3a:
+
+.git/objects/3c:
+
+.git/objects/3d:
+
+.git/objects/3f:
+
+.git/objects/41:
+
+.git/objects/42:
+
+.git/objects/45:
+
+.git/objects/47:
+
+.git/objects/48:
+
+.git/objects/49:
+
+.git/objects/4c:
+
+.git/objects/4e:
+
+.git/objects/4f:
+
+.git/objects/50:
+6 Aug 24 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  384 Aug 19 12:55 99cbbb439187f83760a77e3867aec5c36bcb8a
+-r--r--r--  1 narajaon  2017_paris  1050 Aug 24 19:55 afc64513626f238c6a7a3c5d9712753c54e2de
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  418 Aug 21 14:51 29c455f713015f00d6e49fde11a262b56df138
+-r--r--r--  1 narajaon  2017_paris  447 Aug 26 15:20 9ce38c836802628b1900d47f744751397ba8ce
+-r--r--r--  1 narajaon  2017_paris  277 Aug 19 12:55 b2d6042614f1a7e5cf8d171eef66d4f1f8f982
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  278 Aug 21 14:51 667e2031ab7523c6174fa5a333b57017d35103
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  282 Aug 21 14:51 3a51ed4849b03298332defe619f84dffd6774e
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  12764 Aug 24 17:27 4b82e3c4e258b21eb895d17aed5d4c35f7a1b0
+drwxr-xr-x  7 narajaon  2017_paris  238 Aug 27 18:26 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  394 Aug 26 19:55 13b07d9b0ca58b16788c8daeb41bd5a877269b
+-r--r--r--  1 narajaon  2017_paris  848 Aug 22 20:46 315ae0401a553ca5890133376b908e32761ab2
+-r--r--r--  1 narajaon  2017_paris  304 Aug 21 14:51 44d238e8d879d25abb8857e936499719c892a2
+-r--r--r--  1 narajaon  2017_paris  384 Aug 19 12:55 6a67d14fc24e0849666e8c75d217c86fd033ee
+-r--r--r--  1 narajaon  2017_paris  656 Aug 27 18:26 aa91c8be071621b111f2b24f1aea05faff3a74
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  293 Aug 22 20:46 135bc96e09522efe4407c75cded22fa208be1a
+-r--r--r--  1 narajaon  2017_paris  287 Aug 19 12:55 c301f86e373bc4caeb60f767f8e6708f03ac77
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  286 Aug 19 12:55 bab685f61afb21e7f1974ae49935a6ec5fdb29
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  675 Aug 22 20:46 d2e743a6d26557b9912b66b6d23884ed92bffe
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  467 Aug 21 14:51 3c75edab81aef9fd1025f9069cf1eb4dc50901
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 17:57 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  399 Aug 26 17:57 8afae176c722317667f96e0a924633cae2f3e6
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 27 18:26 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  479 Aug 27 18:26 dd0febf5cc46addb79b47ea145638c9d0d6bba
+-r--r--r--  1 narajaon  2017_paris  516 Aug 19 12:55 f79566b740bc39f3e38e1ddb283938116a935a
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  2024 Aug 21 14:51 0b425e367f029f5685e7b21c1c9940fc9991bd
+-r--r--r--  1 narajaon  2017_paris  587 Aug 21 14:51 86275c9a762726666a61a7eaf0e9cb0303b9de
+-r--r--r--  1 narajaon  2017_paris  287 Aug 19 12:55 da14b84841becde83d7db6af6363aaa9c80283
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 21:01 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  9634 Aug 21 21:01 da9a14c1932706b2d0a47cd1bba8ead9ebf455
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 20:58 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  298 Aug 24 20:58 34842e78bd27c9941ab409a4f2b9b119a1f52a
+drwxr-xr-x  5 narajaon  2017_paris  170 Au
+.git/objects/51:
+
+.git/objects/55:
+
+.git/objects/56:
+
+.git/objects/5b:
+
+.git/objects/5c:
+
+.git/objects/60:
+
+.git/objects/62:
+
+.git/objects/63:
+
+.git/objects/64:
+
+.git/objects/66:
+
+.git/objects/6a:
+
+.git/objects/6b:
+
+.git/objects/6c:
+
+.git/objects/6d:
+
+.git/objects/71:
+g 26 15:20 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  255 Aug 22 20:46 08ddfcf53c02e82d7eee2e57c38e5672ef89f6
+-r--r--r--  1 narajaon  2017_paris  401 Aug 19 12:55 dad7492ef249690bc5c1431e2e93f66900ef49
+-r--r--r--  1 narajaon  2017_paris  1177 Aug 26 15:20 e744e662275070dbeba32181fabd80087471d2
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1247 Aug 24 19:55 c5f6a560ca8250e07b9c8e07ab5ee0e2f4d969
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  302 Aug 22 20:46 01a239e480965844356923f7941e86f04e782b
+-r--r--r--  1 narajaon  2017_paris  1076 Aug 21 21:01 0d6416b3895cf138c70ad7e43cdffff3f90831
+-r--r--r--  1 narajaon  2017_paris  288 Aug 21 14:51 e36a9ea083b9dbd973327c8819a31911b4ec45
+-r--r--r--  1 narajaon  2017_paris  360 Aug 22 20:46 f7cc98805f933783ce3fe5460485f2533f8b22
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  528 Aug 19 12:55 82fac894b5bb6879f051b576858634f1218e98
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  355 Aug 19 12:55 ee58205e173f2c2aabda0686fcc1b60961277d
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  2018 Aug 24 17:27 f3104c73205532dd198ca2b50a029796ef9138
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  312 Aug 19 12:55 df91f8f05cbcfb15bdb5ad31fa85292d2f9580
+-r--r--r--  1 narajaon  2017_paris  589 Aug 22 20:46 e511af2228a4b7fcab35130a8e5a9eb231087c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  330 Aug 19 12:55 11b87961f3a44992c92ee8d22d57d21dbcfaaa
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 21:01 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  295 Aug 21 14:51 0c861d001c611e179db7f52e9220d689327e1d
+-r--r--r--  1 narajaon  2017_paris  450 Aug 21 21:01 578f456bf57491de4dde7992452a1ce78623bc
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  366 Aug 19 12:55 171397ffc8fd6ce43b9108b79930dc6f08bd8f
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 27 18:26 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  292 Aug 19 12:55 48cdc9bbfdd248dfa252d295cf9d6398f9f559
+-r--r--r--  1 narajaon  2017_paris  398 Aug 27 18:26 4b00bfa224e6583945657e1d7271bb801d014d
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 27 18:26 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1202 Aug 27 18:26 3516744dbf1b689631633161580b9068e7db2f
+-r--r--r--  1 narajaon  2017_paris  300 Aug 22 20:46 813c5e6222c78d2758f10a39a3fd1a9c526587
+-r--r--r--  1 narajaon  2017_paris  351 Aug 22 20:46 bd6bef0d911bfdad06cfc0cb3b9e48711ce0a5
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 20:58 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  339 Aug 24 20:58 830fecc75f54cc1f58a402199c31f7a3eebf82
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 27 18:26 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  14543 Aug 27 18:26 01c2ad6a2c61e4b6f0395a5b1a3c980c1de072
+-r--r--r--  1 narajaon  2017_paris  270 Aug 21 21:01 7d44c8cd03fc7ad1c15598172742e8dc9a7d67
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  294 Aug 22 20:46 c20d60235007aa12b8e18edaf87c2206d1eece
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 
+.git/objects/72:
+
+.git/objects/75:
+
+.git/objects/7a:
+
+.git/objects/7b:
+
+.git/objects/7c:
+
+.git/objects/7d:
+
+.git/objects/80:
+
+.git/objects/84:
+
+.git/objects/85:
+
+.git/objects/86:
+
+.git/objects/87:
+
+.git/objects/88:
+
+.git/objects/89:
+
+.git/objects/8a:
+
+.git/objects/8e:
+24 17:27 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  190 Aug 24 17:27 220bdccfa429e5704b17764ec63dff9b4a7be1
+-r--r--r--  1 narajaon  2017_paris  271 Aug 19 12:55 9c9fe76824ad275603983505602c32a76e8918
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  388 Aug 19 12:55 7b1276b574b391478ed551a446ddd96b541583
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 17:53 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  339 Aug 24 17:53 236f5162ddaa70175d6d1719395afa25f49c7a
+-r--r--r--  1 narajaon  2017_paris  310 Aug 22 20:46 d8f2179f1da13cd55c37fbd311af0ac41c6ea5
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 15:20 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1286 Aug 26 15:20 e6cab33f4935096c70046c298e29a63e4b86cc
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  288 Aug 22 20:46 c0a43ba0a4ca56883a675c402bf7f6ae3ac7fe
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  291 Aug 22 20:46 bebd4e8fbfab8be42af6ebd86ce18cd3cb8174
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  469 Aug 21 14:51 da4adab1655cdf693e235012ce100d8ff08a57
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 17:57 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1339 Aug 26 17:57 030784cd336c33a690d57083a932814a3dc0fa
+-r--r--r--  1 narajaon  2017_paris  460 Aug 22 20:46 83c182dadb1048ded2686934673d84a9e32144
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  363 Aug 22 20:46 9bf556f70164928a7bba296e5723ef33108d22
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 27 18:26 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  786 Aug 26 15:20 5cc63955eccbcdee7866ff3c0e79ea069e005c
+-r--r--r--  1 narajaon  2017_paris  506 Aug 27 18:26 64fb5adc3de4a41ae1fb198e18df2080eaa0dc
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 17:57 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1983 Aug 21 14:51 544187905cd9779e573c56f74336206bfd8730
+-r--r--r--  1 narajaon  2017_paris  1116 Aug 26 17:57 f169a8cf0ff3134360bc5fa861463c9a462990
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  330 Aug 21 14:51 12f9f5aed95c428f5268a0a14dc2cc84737198
+-r--r--r--  1 narajaon  2017_paris  576 Aug 22 20:46 14b4a480e83ce92f9cc8bc3fce21a5bffacea7
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  451 Aug 21 20:46 99af20c9c47f5daad40a84995fd6ea4c18bc94
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  291 Aug 21 14:51 9a5a1acc0f6e0a37cc6fae8e38e1d61e52125c
+-r--r--r--  1 narajaon  2017_paris  335 Aug 21 14:51 9cdf40f8b72c95cc3789b3403c10c7021c1445
+-r--r--r--  1 narajaon  2017_paris  271 Aug 22 20:46 a83408bd06e0bd4839e145a90e8da0ebe8f2c9
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  784 Aug 21 14:51 15ce6cd4d784a7a2d40697a4c5a4244f74e844
+-r--r--r--  1 narajaon  2017_paris  280 Aug 19 12:55 3842723e1360df8d65c4cfe26502d1d023c9bf
+-r--r--r--  1 narajaon  2017_paris  331 Aug 19 12:55 e6fbcd8920159f6fa2690db3f8f826913f30fb
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 20:58 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017
+.git/objects/8f:
+
+.git/objects/90:
+
+.git/objects/91:
+
+.git/objects/93:
+
+.git/objects/94:
+
+.git/objects/96:
+
+.git/objects/97:
+
+.git/objects/98:
+
+.git/objects/9a:
+
+.git/objects/9b:
+
+.git/objects/9c:
+
+.git/objects/9d:
+
+.git/objects/9e:
+
+.git/objects/a3:
+
+.git/objects/a5:
+
+.git/objects/a6:
+
+.git/objects/a7:
+_paris  710 Aug 22 20:46 18016a86d91aaf2a4833437efc2a1ca46f90ab
+-r--r--r--  1 narajaon  2017_paris  464 Aug 24 20:58 ef9c18c7b1648adf374cc133485f32aafb9719
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 15:20 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  399 Aug 26 15:20 19c53404fce826c190a6174ec41a7d34f276d2
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  359 Aug 19 12:55 9f2948adc641182fd9c9b66796296b7bed2040
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  351 Aug 19 12:55 dea4a64459fe438e7e7c9464295e6aa1bf1ecf
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1073 Aug 22 20:46 6b1700700bad2407f91bb79a7076c638d42031
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  393 Aug 19 12:55 139c83e0b1a59c147fc8242d5c8389d6c75660
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  708 Aug 21 14:51 2fe059e3e05286a5df22ecf012d717055f07b9
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  828 Aug 22 20:46 c929862bc37c0e85f94c5114b094b8a7b709c7
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  304 Aug 19 12:55 cfff88b640e19af982d4863ee941ae4392abf7
+drwxr-xr-x  7 narajaon  2017_paris  238 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  599 Aug 21 14:51 172271f2ca6146824aee92a6969f4a910805ac
+-r--r--r--  1 narajaon  2017_paris  311 Aug 22 20:46 26542f5c46e45f9b8a54aecc6b07874908f378
+-r--r--r--  1 narajaon  2017_paris  402 Aug 19 12:55 617e39d98484439091226b89c3581913d7d6fd
+-r--r--r--  1 narajaon  2017_paris  760 Aug 22 20:46 9bda7dfe6cfce2e6476d7d64ccb6d769c80b98
+-r--r--r--  1 narajaon  2017_paris  340 Aug 22 20:46 bbabfb5cee28fe7e9346169273c82865fefac9
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  364 Aug 22 20:46 0d945471ebd24f0ae750cf89ff0256bcd1d72c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  318 Aug 24 17:27 348eb7520904af4386224f1f51bf49370bc6c3
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 19:56 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1040 Aug 24 19:56 4960206610f68e37d70be56c8b3e0af42e9a22
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  428 Aug 22 20:46 6d9a16e71977a81a112170f55e8d90549e41ec
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  449 Aug 21 14:51 57e5aca8c15d4107d6bbef7378e4279d4b7067
+-r--r--r--  1 narajaon  2017_paris  450 Aug 19 12:55 b78096c055bf2f8fd756ada3044bf8191095d5
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  389 Aug 21 14:51 df49b5cdb9e11ec682f5ae81ea6f2ddfe96fb4
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  183 Aug 21 20:46 0b2fdb0f482e67a6e3bda65f97bc668c71ae77
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  579 Aug 22 20:46 b66e55611974702f2c19c7cd5a92f22b
+.git/objects/a8:
+
+.git/objects/aa:
+
+.git/objects/ac:
+
+.git/objects/ad:
+
+.git/objects/b1:
+
+.git/objects/b5:
+
+.git/objects/b6:
+
+.git/objects/b7:
+
+.git/objects/b8:
+
+.git/objects/bc:
+
+.git/objects/bd:
+
+.git/objects/be:
+
+.git/objects/bf:
+
+.git/objects/c3:
+
+.git/objects/c4:
+
+.git/objects/c5:
+
+.git/objects/c6:
+bc2c3a
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  487 Aug 19 12:55 2557c97e01db8c0073f5a900e2ec703c3cf08f
+-r--r--r--  1 narajaon  2017_paris  758 Aug 19 12:55 b28eced1668c9d4214d1815ab656ba66fddf9d
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  335 Aug 19 12:55 7a104fd269d783ec314f8ee43b71dce7e31252
+-r--r--r--  1 narajaon  2017_paris  472 Aug 22 20:46 97099447e0458f47b44be73d0db96eb6ec86ec
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  303 Aug 21 14:51 b8e7aa62aebddab42abff2d54b2598fc9ab797
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  525 Aug 22 20:46 f73433656c0e93b8ec47852b34cd5df853612d
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  13150 Aug 24 19:55 6fd537f77597925c824c9dc436d2aa6453bdd9
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  307 Aug 22 20:46 168d2fd6e489c37d0a25ceb5fab458120916fd
+-r--r--r--  1 narajaon  2017_paris  299 Aug 22 20:46 996475c7b8411d4de6672b3ddff7e6afed4c81
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1241 Aug 24 17:27 fc8470fa0f149afca34a921907e0ccbe55beea
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 17:27 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  450 Aug 24 17:27 0bcbda0d870f5b55f583b0652b046625ddd7f5
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  586 Aug 21 14:51 375db35e4348f5228757079260b5bb0cd332d8
+-r--r--r--  1 narajaon  2017_paris  4191 Aug 22 20:46 9f711ded19df5583490f44b8c29b316cc5d802
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  192 Aug 22 20:46 3b0feca6b2ce263d6c48a0c14bdfc6ab0db758
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  93 Aug 26 15:20 7251a07757840cfe3b7433af347d83449a9763
+-r--r--r--  1 narajaon  2017_paris  462 Aug 24 19:55 9ffc61b4b0e4612e2b5909300c0d196c18f207
+-r--r--r--  1 narajaon  2017_paris  320 Aug 19 12:55 e722f9993b34e20c2cca5202f84653c51a958d
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  146 Aug 19 12:55 e63fbc8e2d2426304960318d42e869d70fc392
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  299 Aug 22 20:46 e209915744e77b1bd44ccf0b510c01173c879c
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  593 Aug 22 20:46 8bf5a3ab2d23eb9d362a140483376b5694eb08
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  418 Aug 19 12:55 d3902d0ba51153474e5a3834f7efa728a38e87
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  588 Aug 21 14:51 339ff8152a6626fc2843cf0aa9e8b61ccf44d3
+-r--r--r--  1 narajaon  2017_paris  266 Aug 21 14:51 a73f20f67af70d724ce99b7bf2336ae1f77f01
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 19:56 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  542 Aug 22 20
+.git/objects/c7:
+
+.git/objects/c8:
+
+.git/objects/c9:
+
+.git/objects/cf:
+
+.git/objects/d0:
+
+.git/objects/d2:
+
+.git/objects/d3:
+
+.git/objects/d4:
+
+.git/objects/d5:
+
+.git/objects/d6:
+
+.git/objects/d7:
+
+.git/objects/d8:
+
+.git/objects/db:
+:46 09e823268773737aff6b4cb1eef89b8a936639
+-r--r--r--  1 narajaon  2017_paris  197 Aug 24 19:56 4e12cbab7ec5cd166e4ff5db0a63a59b8dfd64
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  593 Aug 22 20:46 138cad953c51d60ffb01cd25d3470fe48e3abc
+-r--r--r--  1 narajaon  2017_paris  358 Aug 21 14:51 797b9f1a98170457d0b108feb1a892363b31b4
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 21:01 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  682 Aug 22 20:46 418256d2235a4893453ebc7f8d3367af8484af
+-r--r--r--  1 narajaon  2017_paris  599 Aug 21 21:01 56e7877c5ee77407fe2683cc4bb147fda3df7c
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  294 Aug 19 12:55 0a5361a66982279087c65c52704f011c34dff6
+-r--r--r--  1 narajaon  2017_paris  134 Aug 19 12:55 34d5c1b6077bffe474765ee21f9fd03307cbde
+-r--r--r--  1 narajaon  2017_paris  454 Aug 22 20:46 3b47c413bbef88106749d1caf8d294e7934738
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  333 Aug 21 14:51 6dee3f1979e536b15904c0acc359ceb7b2e9a9
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  290 Aug 21 14:51 33defc6f9961cd3df13912210866f177f3e9e5
+-r--r--r--  1 narajaon  2017_paris  359 Aug 22 20:46 d9dc4c5508665cad54d49cbbf2352849350d63
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  347 Aug 21 14:51 01a86d6e0456c04b45680c1ab545bcfec4aba1
+-r--r--r--  1 narajaon  2017_paris  379 Aug 19 12:55 da5740582ddb4c7278497249539a43cdd993fb
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 24 17:27 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  288 Aug 24 17:27 152367ab357741aae7ab0294d62acb1615be69
+-r--r--r--  1 narajaon  2017_paris  400 Aug 19 12:55 c97743b3146f9d76ebcddb5cec1f761e410f68
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  50 Aug 21 14:51 d448bb72122ddaf607dfe3591522b5ad534fc8
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1255 Aug 26 19:55 5e9dca34d0ee2882aa2a6d9dfef7c3ab826aa9
+-r--r--r--  1 narajaon  2017_paris  281 Aug 19 12:55 92cd1b55cc672384e8ea5cd5813679d3ff1f50
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 26 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1344 Aug 26 19:55 e4b2ada704f69284a231df24a32ae62a8068af
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  450 Aug 21 14:51 1c301f2bc28f14e8a9a85411f9406551385ee3
+-r--r--r--  1 narajaon  2017_paris  405 Aug 19 12:55 3c4e90ceccabb1c0da661eebf423fe03aad221
+-r--r--r--  1 narajaon  2017_paris  2334 Aug 21 20:46 743f3e7f2d4047b4e55269cf905f2721a4c96f
+-r--r--r--  1 narajaon  2017_paris  347 Aug 22 20:46 a36ca26fb0e7391f321b4d19b0f4cac5bd696b
+drwxr-xr-x  7 narajaon  2017_paris  238 Aug 27 18:26 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1444 Aug 27 18:26 077758701f5e0916e5f120f0cd48a1384f4fa6
+-r--r--r--  1 narajaon  2017_paris  417 Aug 21 14:51 39d9177714ff1607c4cde3c555197e8a6cf5fd
+-r--r--r--  1 narajaon  2017_paris  436 Aug 19 12:55 4d586f9ccf5a2cfe234c5494d0098721f3c4d2
+-r--r--r--  1 narajaon  2017_paris  349 Aug 19 12:55 df38d070c153f89a6d063cfe1279e62175bfab
+-r--r--r--  1 narajaon  2017_paris  370 Aug 22 20:46 fb36ecbef0fd807d6ea36c097d19e980c11c87
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 20:58 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r
+.git/objects/dc:
+
+.git/objects/df:
+
+.git/objects/e4:
+
+.git/objects/e5:
+
+.git/objects/e6:
+
+.git/objects/e7:
+
+.git/objects/e8:
+
+.git/objects/ea:
+
+.git/objects/ec:
+
+.git/objects/ed:
+
+.git/objects/ee:
+
+.git/objects/f0:
+
+.git/objects/f1:
+
+.git/objects/f2:
+
+.git/objects/f3:
+--r--  1 narajaon  2017_paris  13276 Aug 24 20:58 cfb2cf95e682259305b595d95703d88c6a7b8d
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  307 Aug 21 14:51 08f66206047afe9a813ec55fb094aecf9f36a8
+-r--r--r--  1 narajaon  2017_paris  317 Aug 21 14:51 7e53d9f8b55b289c73783dcbbf1e15d3979273
+-r--r--r--  1 narajaon  2017_paris  1067 Aug 21 14:51 e39fbfb2f5dce0224a166ccac0e4af6ed3c06d
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  750 Aug 22 20:46 b3750012afcbb984ffd2ec859d68cac4f80801
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  472 Aug 22 20:46 b9afe9a938d20ea342cf545024cf3ef6416a9d
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  391 Aug 19 12:55 b055bab1f527865936fd141885feb3bf3ebd3e
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  194 Aug 26 15:20 75ffa4fdff8a289f375a86344c2ee15ae2acd5
+-r--r--r--  1 narajaon  2017_paris  687 Aug 22 20:46 99a80ccc80e43f19ab36bfbf8ba25e5193c8a2
+-r--r--r--  1 narajaon  2017_paris  1131 Aug 24 17:27 b3a312b13d1dddac3858932479095ab7cb9aca
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  47 Aug 21 14:51 008c82393cbaf260decf59653bb38a6ae88495
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 17:57 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  187 Aug 24 17:53 3b44bdf3eec173e8741401af25abb78fe4bc34
+-r--r--r--  1 narajaon  2017_paris  873 Aug 24 17:27 9908b3647e6be559012d2e1e4be6ebe615e4ef
+-r--r--r--  1 narajaon  2017_paris  367 Aug 26 17:57 d8546aaec149ba136b340cb0a24697dc8d3204
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 15:20 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  321 Aug 22 20:46 10a5024bb97e1d3acce9e38c3b6bec82cc4eac
+-r--r--r--  1 narajaon  2017_paris  551 Aug 22 20:46 3efd459d81c084e57a8f0c1ee37442b287a0f1
+-r--r--r--  1 narajaon  2017_paris  13588 Aug 26 15:20 da51de9fccad6783307d07d641ac03a9cdf36a
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  279 Aug 21 14:51 852bd8cbba129d3bd15e5c69bd8296d476be5c
+-r--r--r--  1 narajaon  2017_paris  371 Aug 19 12:55 cf8dd2131e14be405347605b313ca0322c23b6
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  355 Aug 19 12:55 a9b5ccd5f51809f4fe365e22723f2b277b25e3
+-r--r--r--  1 narajaon  2017_paris  189 Aug 26 19:55 ab20e1f5feae5658a3c781fb4f7ac4541f88ee
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 24 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  196 Aug 24 19:55 e002a1f978adcbccfacc00d03bce5b4e4942ec
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 26 17:57 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  446 Aug 21 20:46 63c2239b786c7e8dd9c6028b7748364a2e067b
+-r--r--r--  1 narajaon  2017_paris  340 Aug 22 20:46 ba68b6ea4bd0028a03f53517feae6675a49665
+-r--r--r--  1 narajaon  2017_paris  193 Aug 26 17:57 fd7294c3830c42183cb1692cf0d26a57744795
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  391 Aug 21 20:46 afee9b8c0c92239a037bd5ccbe97df8bcc8e18
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  537 Aug 21 14:51 5247873f9c1e7afe19cc978830bc0b7183c982
+drwxr-xr-x  4 narajaon  2017_p
+.git/objects/f4:
+
+.git/objects/f5:
+
+.git/objects/f7:
+
+.git/objects/f8:
+
+.git/objects/fa:
+
+.git/objects/fc:
+
+.git/objects/fd:
+
+.git/objects/info:
+
+.git/objects/pack:
+
+.git/refs:
+
+.git/refs/heads:
+
+.git/refs/remotes:
+
+.git/refs/remotes/origin:
+
+.git/refs/tags:
+aris  136 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  280 Aug 21 14:51 548b927241aa40c6c4d63e46a9738e2c87add3
+-r--r--r--  1 narajaon  2017_paris  473 Aug 22 20:46 ba59e1a05ab898c840eb19bdd20f80b7b4a7a8
+drwxr-xr-x  6 narajaon  2017_paris  204 Aug 24 20:58 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  1073 Aug 21 20:46 057f373b5184f7441291b81dec8bfd4d59ee07
+-r--r--r--  1 narajaon  2017_paris  1031 Aug 24 20:58 4a292cda528663b37eaea9171d50816f55d4e1
+-r--r--r--  1 narajaon  2017_paris  548 Aug 21 14:51 6b1826459c8666556bc44e82ae18d10aa0b3ba
+-r--r--r--  1 narajaon  2017_paris  392 Aug 22 20:46 de4e8a9cf239c3921fbba5c931378882ab28a6
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  360 Aug 19 12:55 c145720b517dfb8a3557261a811949878e7ef4
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  339 Aug 22 20:46 896f73b46029f5a3ccb21f4ddfc3c5dfa9ba7a
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 22 20:46 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  270 Aug 21 20:46 1b08753e0c7919ed44d808192e561f60259cc2
+-r--r--r--  1 narajaon  2017_paris  595 Aug 22 20:46 9dd1f3817f56ab45e7e342bf14fbdfc5e1d73d
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 21 14:51 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  529 Aug 22 20:46 62a61cfc0cc8da41972989c4c16db4dd0dc2af
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 21 21:01 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  406 Aug 21 21:01 6b57f9ca4a7b4b85431071bd6aca1fb8d24a22
+-r--r--r--  1 narajaon  2017_paris  294 Aug 19 12:55 b4f2b5a3e9f99a92230b7a165a12bca431e42e
+drwxr-xr-x  4 narajaon  2017_paris  136 Aug 26 19:55 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  288 Aug 21 14:51 3f92da54ad38a76f216eaadb3d096d2402ba6f
+-r--r--r--  1 narajaon  2017_paris  13829 Aug 26 19:55 d591e3f3e37c219ea3a66e8738bd7d09860422
+drwxr-xr-x  2 narajaon  2017_paris  68 Aug 13 18:00 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+drwxr-xr-x  4 narajaon  2017_paris  136 Sep 2 10:36 .
+drwxr-xr-x 152 narajaon  2017_paris  5168 Aug 27 18:26 ..
+-r--r--r--  1 narajaon  2017_paris  5776 Sep 2 10:36 pack-cd7f573109beb7f43e19973f3442d695887183ce.idx
+-r--r--r--  1 narajaon  2017_paris  114910 Sep 2 10:36 pack-cd7f573109beb7f43e19973f3442d695887183ce.pack
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 19 12:55 .
+drwxr-xr-x 15 narajaon  2017_paris  510 Sep 2 12:34 ..
+drwxr-xr-x  3 narajaon  2017_paris  102 Sep 2 10:36 heads
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 remotes
+drwxr-xr-x  2 narajaon  2017_paris  68 Aug 13 18:00 tags
+drwxr-xr-x  3 narajaon  2017_paris  102 Sep 2 10:36 .
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 19 12:55 ..
+-rw-r--r--  1 narajaon  2017_paris  41 Sep 2 10:36 master
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 .
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 19 12:55 ..
+drwxr-xr-x  3 narajaon  2017_paris  102 Sep 2 10:36 origin
+drwxr-xr-x  3 narajaon  2017_paris  102 Sep 2 10:36 .
+drwxr-xr-x  3 narajaon  2017_paris  102 Aug 19 12:55 ..
+-rw-r--r--  1 narajaon  2017_paris  41 Sep 2 10:36 master
+drwxr-xr-x  2 narajaon  2017_paris  68 Aug 13 18:00 .
+drwxr-xr-x  5 narajaon  2017_paris  170 Aug 19 12:55 ..
