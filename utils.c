@@ -4,9 +4,8 @@ void		exit_error(int error, char opt, char *command)
 {
 	if (error == USAGE)
 	{
-		ft_printf("ft_ls: %s -- %c\
-				\nusage: ft_ls [-lratR] [file ...]\n",
-				strerror(errno), opt);
+		ft_printf("ft_ls: illegal option -- %c\
+				\nusage: ft_ls [-lratR] [file ...]\n", opt);
 	}
 	else if (error == ERRDIR)
 		ft_printf("%s:\nft_ls : %s: %s\n", command, command, strerror(errno));

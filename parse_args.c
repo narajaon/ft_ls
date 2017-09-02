@@ -51,6 +51,9 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 		(env->my_stat.is_root == TRUE &&
 		 ft_strcmp(cur_dir->content_name, ".") == 0))
 	{
+		if (*cur_dir->content_name == '.' && env->ls_flag.a_opt == 0 &&
+				env->my_stat.is_root == FALSE)
+			return ;
 		env->my_stat.is_root = FALSE;
 		ft_strcpy(env->my_stat.path_name, cur_dir->content);
 		ft_printf("\n%s:\n", cur_dir->content);

@@ -6,7 +6,6 @@
 			ls_env.my_stat.grp->gr_name, ls_env.my_stat.size,
 			ls_env.my_stat.date.month, ls_env.my_stat.date.dayth,
 			ls_env.my_stat.date.hour_min, ls_env.cur_file->d_name);
-
 			*/
 /*
  *
@@ -64,8 +63,7 @@ void		get_stats(char *file_name, t_ls *env)
 
 void		print_long(t_stat *my_stat)
 {
-	if (ft_strcmp(my_stat->file_name, ".") != 0 &&
-		ft_strcmp(my_stat->file_name, "..") != 0)
+	if (*my_stat->file_name != '.')
 	{
 		printf("%s% 4d %s  %s  %d %s %s %s %s\n",
 				my_stat->perm_str,
@@ -99,8 +97,7 @@ void		print_short(char *file_name, t_ls *env)
 	get_stats(file_name, env);
 	if (dir_file(env, file_name) == FALSE)
 		reg_file(env, file_name);
-	if (ft_strcmp(env->my_stat.file_name, ".") != 0 &&
-	ft_strcmp(env->my_stat.file_name, "..") != 0)
+	if (*env->my_stat.file_name != '.')
 		ft_printf("%s\n", env->my_stat.file_name);
 }
 

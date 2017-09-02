@@ -45,7 +45,7 @@ void		check_flag(char *av)
 
 t_bool		valid_flag(char *av, t_lsflag *flags)
 {
-	if (av == NULL || *av != '-')
+	if (av == NULL || *av != '-' || av[1] == '\0')
 		return (FALSE);
 	check_flag(++av);
 	init_opt_struct(flags);
