@@ -37,6 +37,12 @@ void	iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
 	}
 }
 
+void	free_n_null(void *to_free)
+{
+	free(to_free);
+	to_free = NULL;
+}
+
 void	iter_node_infix(t_tree *tree, void (*fun)(), t_ls *env)
 {
 	if (tree != NULL)

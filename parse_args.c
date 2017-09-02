@@ -1,24 +1,5 @@
 #include "ft_ls.h"
 
-void		place_files_in_tree(t_ls *env, char *dir_name, int (*cmp)())
-{
-	DIR					*current_dir;
-	struct dirent		*current_file;
-	t_tree				*new;
-
-	if (!(current_dir = opendir(dir_name)))
-		exit_error(ERRDIR, 0, dir_name);
-	while ((current_file = readdir(current_dir)) != NULL)
-	{
-		new = new_node(current_file->d_name,
-				ft_strlen(current_file->d_name) + 1, 1);
-		get_file_name(new->content_name, current_file->d_name);
-		place_in_tree(new, &env->ls_tree, cmp);
-		free(new);
-	}
-}
-
-//need to use place_files_in_tree when *av is a directory
 void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)())
 {
 	t_tree		*new;
@@ -64,11 +45,14 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 
 	current = NULL;
 	stat(cur_dir->content, &env->f_stat);
-	if (S_ISDIR(env->f_stat.st_mode))
+	if ((S_ISDIR(env->f_stat.st_mode) &&
+		(ft_strcmp(cur_dir->content_name, ".") != 0 &&
+		ft_strcmp(cur_dir->content_name, "..") != 0)) ||
+		(env->my_stat.is_root == TRUE &&
+		 ft_strcmp(cur_dir->content_name, ".") == 0))
 	{
-		if (ft_strcmp(cur_dir->content_name, ".") != 0 &&
-		ft_strcmp(cur_dir->content_name, "..") != 0)
-			ft_strcpy(env->my_stat.path_name, cur_dir->content);
+		env->my_stat.is_root = FALSE;
+		ft_strcpy(env->my_stat.path_name, cur_dir->content);
 		ft_printf("\n%s:\n", cur_dir->content);
 		current = create_new_tree(env, cur_dir->content);
 		if (env->ls_flag.capr_opt != 0)

@@ -64,6 +64,20 @@ void		get_stats(char *file_name, t_ls *env)
 
 void		print_long(t_stat *my_stat)
 {
+	if (ft_strcmp(my_stat->file_name, ".") != 0 &&
+		ft_strcmp(my_stat->file_name, "..") != 0)
+	{
+		printf("%s% 4d %s  %s  %d %s %s %s %s\n",
+				my_stat->perm_str,
+				my_stat->nlinks, my_stat->pwd->pw_name,
+				my_stat->grp->gr_name, my_stat->size,
+				my_stat->date.month, my_stat->date.dayth,
+				my_stat->date.hour_min, my_stat->file_name);
+	}
+}
+
+void		print_long_a_opt(t_stat *my_stat)
+{
 	printf("%s% 4d %s  %s  %d %s %s %s %s\n",
 			my_stat->perm_str,
 			my_stat->nlinks, my_stat->pwd->pw_name,
@@ -72,7 +86,7 @@ void		print_long(t_stat *my_stat)
 			my_stat->date.hour_min, my_stat->file_name);
 }
 
-void		print_short(char *file_name, t_ls *env)
+void		print_short_a_opt(char *file_name, t_ls *env)
 {
 	get_stats(file_name, env);
 	if (dir_file(env, file_name) == FALSE)
@@ -80,18 +94,33 @@ void		print_short(char *file_name, t_ls *env)
 	ft_printf("%s\n", env->my_stat.file_name);
 }
 
+void		print_short(char *file_name, t_ls *env)
+{
+	get_stats(file_name, env);
+	if (dir_file(env, file_name) == FALSE)
+		reg_file(env, file_name);
+	if (ft_strcmp(env->my_stat.file_name, ".") != 0 &&
+	ft_strcmp(env->my_stat.file_name, "..") != 0)
+		ft_printf("%s\n", env->my_stat.file_name);
+}
+
 void		print_args(char *file_name, t_ls *env)
 {
 	get_stats(file_name, env);
 	if (dir_file(env, file_name) == FALSE)
 		reg_file(env, file_name);
-	print_long(&env->my_stat);
+	if (env->ls_flag.l_opt != 0 && env->ls_flag.a_opt != 0)
+		print_long_a_opt(&env->my_stat);
+	else
+		print_long(&env->my_stat);
 }
 
 void		*apply_print_opt(t_lsflag *flags)
 {
 	if (flags->l_opt != 0)
 		return (&print_args);
+	if (flags->a_opt != 0)
+		return(&print_short_a_opt);
 	return (&print_short);
 }
 
@@ -100,14 +129,6 @@ void		*apply_sort_opt(t_lsflag *flags)
 	if (flags->r_opt != 0 && flags->t_opt == 0)
 		return (&ft_rev_strcmp);
 	return (&ft_strcmp);
-}
-
-void		print_cur_dir(char *dir_name, int (cmp)())
-{
-	t_ls		ls_env;
-
-	place_files_in_tree(&ls_env, dir_name, cmp);
-	iter_tree_infix(ls_env.ls_tree, &print_args, &ls_env);
 }
 
 void		ft_ls(int ac, char **av)
@@ -124,10 +145,11 @@ void		ft_ls(int ac, char **av)
 	ls_env.cmp = apply_sort_opt(&ls_env.ls_flag);
 	if (*av == NULL)
 	{
-		*av = ft_memalloc(1);
+		av = ft_memalloc(2);
 		av[0] = ".";
 		av[1] = 0;
 	}
+	ls_env.my_stat.is_root = TRUE;
 	place_args_in_tree(&ls_env.ls_tree, av, ls_env.cmp);
 	ft_strcpy(ls_env.my_stat.path_name, ls_env.ls_tree->content);
 	recursive_print(ls_env.ls_tree, &ls_env);
