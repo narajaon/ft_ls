@@ -30,9 +30,9 @@ int			ft_rev_strcmp(char *s1, char *s2)
 
 int			time_t_cmp(char *s1, char *s2)
 {
-	time_t			a;
-	time_t			b;
-	struct stat		tmp;
+	time_t					a;
+	time_t					b;
+	static struct stat		tmp;
 
 	stat(s1, &tmp);
 	a = tmp.st_mtime;
@@ -43,9 +43,9 @@ int			time_t_cmp(char *s1, char *s2)
 
 int			time_t_rev_cmp(char *s1, char *s2)
 {
-	time_t			a;
-	time_t			b;
-	struct stat		tmp;
+	time_t					a;
+	time_t					b;
+	static struct stat		tmp;
 
 	stat(s1, &tmp);
 	a = tmp.st_mtime;
