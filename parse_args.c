@@ -1,6 +1,7 @@
 #include "ft_ls.h"
 
-void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)())
+void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)(),
+		void (*place_node)())
 {
 	t_tree		*new;
 
@@ -8,13 +9,13 @@ void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)())
 	{
 		new = new_node(*av, ft_strlen(*av) + 1, 1);
 		get_file_name(new->content_name, *av);
-		place_in_tree(new, tree, cmp);
+		place_node(new, tree, cmp);
 		free(new);
 		av++;
 	}
 }
 
-t_tree		*create_new_tree(t_ls *env, char *dir_name)
+t_tree		*create_new_tree(t_ls *env, char *dir_name, void (*place_node)())
 {
 	DIR					*current_dir;
 	struct dirent		*current_file;
@@ -32,7 +33,7 @@ t_tree		*create_new_tree(t_ls *env, char *dir_name)
 		new_leaf = new_node(env->my_stat.path_name,
 				ft_strlen(env->my_stat.path_name) + 1, 1);
 		get_file_name(new_leaf->content_name, env->my_stat.path_name);
-		place_in_tree(new_leaf, &new_tree, env->cmp);
+		place_node(new_leaf, &new_tree, env->cmp);
 		remove_from_path(env->my_stat.path_name);
 		free(new_leaf);
 	}
@@ -57,7 +58,7 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 			return ;
 		ft_strcpy(env->my_stat.path_name, cur_dir->content);
 		ft_printf("\n%s:\n", cur_dir->content);
-		current = create_new_tree(env, cur_dir->content);
+		current = create_new_tree(env, cur_dir->content, env->place_node);
 		if (env->ls_flag.capr_opt != 0)
 		{
 			env->my_stat.is_root = FALSE;

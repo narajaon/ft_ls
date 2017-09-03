@@ -79,6 +79,7 @@ typedef struct		s_date
 	char			hour_min[6];
 	char			sec[3];
 	int				year;
+	time_t			epoch;
 }					t_date;
 
 typedef struct		s_stat
@@ -104,6 +105,7 @@ typedef struct		s_ls
 	struct dirent	*cur_file;
 	int				(*cmp)();
 	void			(*print)();
+	void			(*place_node)();
 }					t_ls;
 
 t_tree				*new_node(void *content, size_t size, int content_id);
@@ -112,6 +114,8 @@ void				iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env);
 void				iter_node_infix(t_tree *tree, void (*fun)(), t_ls *env);
 void				free_n_null(void *to_free);
 void				place_in_tree(t_tree *new_node,
+		t_tree **tree, int (*cmp)());
+void				place_in_tree_time_t(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
 
 t_bool				valid_flag(char *av, t_lsflag *flags);
@@ -122,8 +126,8 @@ t_bool				format_file_stat(struct stat *file_stat, char *name,
 		t_stat *my_stat);
 void				exit_error(int error, char opt, char *command);
 int					ft_rev_strcmp(char *s1, char *s2);
-int					ft_int_cmp(int a, int b);
-int					ft_int_rev_cmp(int a, int b);
+int					time_t_cmp(char *s1, char *s2);
+int					time_t_rev_cmp(char *s1, char *s2);
 void				add_to_path(char *path, char *file_name);
 void				remove_from_path(char *path);
 void				get_file_name(char *name, char *pwd);
@@ -134,8 +138,9 @@ t_bool				dir_file(t_ls *env, char *file_name);
 void				place_files_in_tree(t_ls *env, char *dir_name,
 		int (*cmp)());
 void				place_args_in_tree(t_tree **tree,
-		char **av, int (*cmp)());
-t_tree				*create_new_tree(t_ls *env, char *dir_name);
+		char **av, int (*cmp)(), void (*place_node)());
+t_tree				*create_new_tree(t_ls *env, char *dir_name,
+		void (*place_node)());
 
 
 void				print_short(char *file_name, t_ls *env);

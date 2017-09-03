@@ -28,14 +28,30 @@ int			ft_rev_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-int			ft_int_cmp(int a, int b)
+int			time_t_cmp(char *s1, char *s2)
 {
-	return (a - b);
+	time_t			a;
+	time_t			b;
+	struct stat		tmp;
+
+	stat(s1, &tmp);
+	a = tmp.st_mtime;
+	stat(s2, &tmp);
+	b = tmp.st_mtime;
+	return (b - a);
 }
 
-int			ft_int_rev_cmp(int a, int b)
+int			time_t_rev_cmp(char *s1, char *s2)
 {
-	return (b - a);
+	time_t			a;
+	time_t			b;
+	struct stat		tmp;
+
+	stat(s1, &tmp);
+	a = tmp.st_mtime;
+	stat(s2, &tmp);
+	b = tmp.st_mtime;
+	return (a - b);
 }
 
 void		add_to_path(char *path, char *file_name)

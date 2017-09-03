@@ -56,12 +56,19 @@ void		*apply_print_opt(t_lsflag *flags)
 void		*apply_sort_opt(t_lsflag *flags)
 {
 	if (flags->t_opt != 0 && flags->r_opt == 0)
-		return (&ft_int_cmp);
+		return (&time_t_cmp);
 	if (flags->t_opt != 0 && flags->r_opt != 0)
-		return (&ft_int_rev_cmp);
+		return (&time_t_rev_cmp);
 	if (flags->r_opt != 0 && flags->t_opt == 0)
 		return (&ft_rev_strcmp);
 	return (&ft_strcmp);
+}
+
+void		*apply_node_placement(t_lsflag *flags)
+{
+	if (flags->t_opt != 0)
+		return (&place_in_tree_time_t);
+	return (&place_in_tree);
 }
 
 void		ft_ls(int ac, char **av)
@@ -76,6 +83,7 @@ void		ft_ls(int ac, char **av)
 		av++;
 	ls_env.print = apply_print_opt(&ls_env.ls_flag);
 	ls_env.cmp = apply_sort_opt(&ls_env.ls_flag);
+	ls_env.place_node = apply_node_placement(&ls_env.ls_flag);
 	if (*av == NULL)
 	{
 		av = ft_memalloc(2);
@@ -83,7 +91,7 @@ void		ft_ls(int ac, char **av)
 		av[1] = 0;
 	}
 	ls_env.my_stat.is_root = TRUE;
-	place_args_in_tree(&ls_env.ls_tree, av, ls_env.cmp);
+	place_args_in_tree(&ls_env.ls_tree, av, ls_env.cmp, ls_env.place_node);
 	ft_strcpy(ls_env.my_stat.path_name, ls_env.ls_tree->content);
 	recursive_print(ls_env.ls_tree, &ls_env);
 }
