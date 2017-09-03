@@ -20,7 +20,6 @@
 #define STR(x) printf(#x " = %s\n", x)
 #define EX exit(STR("ici"));
 
-
 //struct stat {
 //	dev_t     st_dev;      /* ID du périphérique contenant le fichier */
 //	ino_t     st_ino;      /* Numéro inœud */
@@ -120,7 +119,7 @@ void				place_in_tree_time_t(t_tree *new_node,
 
 t_bool				valid_flag(char *av, t_lsflag *flags);
 void				get_file_name(char *name, char *pwd);
-void				get_stats(char *file_name, t_ls *env);
+t_bool				get_stats(char *file_name, t_ls *env);
 
 t_bool				format_file_stat(struct stat *file_stat, char *name,
 		t_stat *my_stat);

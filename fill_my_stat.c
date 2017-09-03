@@ -38,8 +38,11 @@ void		u_perm(struct stat *file_stat, char *perm)
 
 	i = 0;
 	bin_perm = 1023 & file_stat->st_mode;
+	ft_memset(perm, '0', 10);
 	ft_ltoa_base(bin_perm, perm, 2);
-	while (perm[i])
+	perm[ft_strlen(perm)] = '0';
+	perm[ft_strlen(perm) + 1] = '\0';
+	while (i < 9)
 	{
 		if (perm[i] == '0')
 			perm[i] = '-';
@@ -51,6 +54,7 @@ void		u_perm(struct stat *file_stat, char *perm)
 			perm[i] = 'x';
 		i++;
 	}
+	perm[i] = '\0';
 }
 
 void		format_perm(struct stat *file_stat, char *perm)

@@ -6,12 +6,12 @@ void		exit_error(int error, char opt, char *command)
 	{
 		ft_printf("ft_ls: illegal option -- %c\
 				\nusage: ft_ls [-lratR] [file ...]\n", opt);
+		exit(1);
 	}
 	else if (error == ERRDIR)
-		ft_printf("%s:\nft_ls : %s: %s\n", command, command, strerror(errno));
+		ft_printf("ft_ls : %s: %s\n", command, strerror(errno));
 	else if (error == WRONG_TYPE)
 		ft_printf("ft_ls : %s: %s\n", command, strerror(errno));
-	exit(1);
 }
 
 int			ft_rev_strcmp(char *s1, char *s2)

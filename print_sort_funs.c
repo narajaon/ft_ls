@@ -25,7 +25,8 @@ void		print_long_a_opt(t_stat *my_stat)
 
 void		print_short_a_opt(char *file_name, t_ls *env)
 {
-	get_stats(file_name, env);
+	if (get_stats(file_name, env) == FALSE)
+		return ;
 	if (dir_file(env, file_name) == FALSE)
 		reg_file(env, file_name);
 	ft_printf("%s\n", env->my_stat.file_name);
@@ -33,7 +34,8 @@ void		print_short_a_opt(char *file_name, t_ls *env)
 
 void		print_short(char *file_name, t_ls *env)
 {
-	get_stats(file_name, env);
+	if (get_stats(file_name, env) == FALSE)
+		return ;
 	if (dir_file(env, file_name) == FALSE)
 		reg_file(env, file_name);
 	if (*env->my_stat.file_name != '.')
@@ -42,7 +44,8 @@ void		print_short(char *file_name, t_ls *env)
 
 void		print_args(char *file_name, t_ls *env)
 {
-	get_stats(file_name, env);
+	if (get_stats(file_name, env) == FALSE)
+		return ;
 	if (dir_file(env, file_name) == FALSE)
 		reg_file(env, file_name);
 	if (env->ls_flag.l_opt != 0 && env->ls_flag.a_opt != 0)

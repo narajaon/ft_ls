@@ -29,7 +29,10 @@ t_bool		dir_file(t_ls *env, char *file_name)
 	if (S_ISDIR(env->f_stat.st_mode))
 	{
 		if (!(env->cur_dir = opendir(file_name)))
-			exit_error(ERRDIR, 0, file_name);
+		{
+			get_file_name(env->my_stat.file_name, file_name);
+			return (FALSE);
+		}
 		env->cur_file = readdir(env->cur_dir);
 		get_file_name(env->my_stat.file_name, file_name);
 		return (TRUE);
@@ -37,11 +40,15 @@ t_bool		dir_file(t_ls *env, char *file_name)
 	return (FALSE);
 }
 
-void		get_stats(char *file_name, t_ls *env)
+t_bool		get_stats(char *file_name, t_ls *env)
 {
 	if (stat(file_name, &env->f_stat) < 0)
+	{
 		exit_error(WRONG_TYPE, 0, file_name);
+		return (FALSE);
+	}
 	format_file_stat(&env->f_stat, env->my_stat.file_name, &env->my_stat);
+	return (TRUE);
 }
 
 void		*apply_print_opt(t_lsflag *flags)
@@ -77,8 +84,6 @@ void		ft_ls(int ac, char **av)
 
 	ls_env.ls_tree = NULL;
 	ls_env.ls_flag.mask = 0;
-	if (*av == NULL || **av != '-')
-		ft_bzero(&ls_env.ls_flag, sizeof(ls_env.ls_flag));
 	while (valid_flag(*av, &ls_env.ls_flag) == TRUE)
 		av++;
 	ls_env.print = apply_print_opt(&ls_env.ls_flag);
