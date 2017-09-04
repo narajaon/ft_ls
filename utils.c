@@ -86,12 +86,3 @@ void		get_file_name(char *name, char *pwd)
 	stop += (pwd[stop] == '/') ? 1 : 0;
 	ft_strcpy(name, &pwd[stop]);
 }
-
-//0000001 l
-//0000010 R
-//0000100 a
-//0001000 r
-//0010000 t
-//
-//
-//cur_dir->d_name = nom du fichier

@@ -62,7 +62,8 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 	t_tree		*current;
 
 	current = NULL;
-	stat(cur_dir->content, &env->f_stat);
+	if ((stat(cur_dir->content, &env->f_stat) < 0))
+			return ;
 	if (can_open_dir(cur_dir, env) == TRUE)
 	{
 		if (*cur_dir->content_name == '.' && env->ls_flag.a_opt == 0 &&

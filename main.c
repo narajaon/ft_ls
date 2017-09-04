@@ -78,6 +78,17 @@ void		*apply_node_placement(t_lsflag *flags)
 	return (&place_in_tree);
 }
 
+char		**has_args(char **av)
+{
+	if (*av == NULL)
+	{
+		av = ft_memalloc(2);
+		av[0] = ".";
+		av[1] = 0;
+	}
+	return (av);
+}
+
 void		ft_ls(int ac, char **av)
 {
 	static t_ls		ls_env;
@@ -89,12 +100,7 @@ void		ft_ls(int ac, char **av)
 	ls_env.print = apply_print_opt(&ls_env.ls_flag);
 	ls_env.cmp = apply_sort_opt(&ls_env.ls_flag);
 	ls_env.place_node = apply_node_placement(&ls_env.ls_flag);
-	if (*av == NULL)
-	{
-		av = ft_memalloc(2);
-		av[0] = ".";
-		av[1] = 0;
-	}
+	av = has_args(av);
 	ls_env.my_stat.is_root = TRUE;
 	place_args_in_tree(&ls_env.ls_tree, av, ls_env.cmp, ls_env.place_node);
 	ft_strcpy(ls_env.my_stat.path_name, ls_env.ls_tree->content);
