@@ -35,6 +35,7 @@ t_bool		dir_file(t_ls *env, char *file_name)
 		}
 		env->cur_file = readdir(env->cur_dir);
 		get_file_name(env->my_stat.file_name, file_name);
+		closedir(env->cur_dir);
 		return (TRUE);
 	}
 	return (FALSE);
@@ -42,7 +43,7 @@ t_bool		dir_file(t_ls *env, char *file_name)
 
 t_bool		get_stats(char *file_name, t_ls *env)
 {
-	if (stat(file_name, &env->f_stat) < 0)
+	if (lstat(file_name, &env->f_stat) < 0)
 	{
 		exit_error(WRONG_TYPE, 0, file_name);
 		return (FALSE);

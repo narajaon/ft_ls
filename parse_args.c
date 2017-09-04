@@ -7,7 +7,10 @@ void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)(),
 
 	while (*av)
 	{
-		new = new_node(*av, ft_strlen(*av) + 1, 1);
+		if (ft_strcmp(*av, "/") != 0)
+			new = new_node(*av, ft_strlen(*av) + 1, 1);
+		else
+			new = new_node("/.", 3, 1);
 		get_file_name(new->content_name, *av);
 		place_node(new, tree, cmp);
 		free(new);
@@ -40,6 +43,7 @@ t_tree		*create_new_tree(t_ls *env, char *dir_name, void (*place_node)())
 		remove_from_path(env->my_stat.path_name);
 		free(new_leaf);
 	}
+	closedir(current_dir);
 	return (new_tree);
 }
 
@@ -62,7 +66,7 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 	t_tree		*current;
 
 	current = NULL;
-	if ((stat(cur_dir->content, &env->f_stat) < 0))
+	if ((lstat(cur_dir->content, &env->f_stat) < 0))
 			return ;
 	if (can_open_dir(cur_dir, env) == TRUE)
 	{

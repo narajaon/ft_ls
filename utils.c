@@ -2,6 +2,8 @@
 
 void		exit_error(int error, char opt, char *command)
 {
+	static char		file_name[NAME_MAX];
+
 	if (error == USAGE)
 	{
 		ft_printf("ft_ls: illegal option -- %c\
@@ -9,9 +11,15 @@ void		exit_error(int error, char opt, char *command)
 		exit(1);
 	}
 	else if (error == ERRDIR)
-		ft_printf("ft_ls : %s: %s\n", command, strerror(errno));
+	{
+		get_file_name(file_name, command);
+		ft_printf("ft_ls : %s: %s\n", file_name, strerror(errno));
+	}
 	else if (error == WRONG_TYPE)
-		ft_printf("ft_ls : %s: %s\n", command, strerror(errno));
+	{
+		get_file_name(file_name, command);
+		ft_printf("ft_ls : %s: %s\n", file_name, strerror(errno));
+	}
 }
 
 int			ft_rev_strcmp(char *s1, char *s2)
@@ -34,9 +42,9 @@ int			time_t_cmp(char *s1, char *s2)
 	time_t					b;
 	static struct stat		tmp;
 
-	stat(s1, &tmp);
+	lstat(s1, &tmp);
 	a = tmp.st_mtime;
-	stat(s2, &tmp);
+	lstat(s2, &tmp);
 	b = tmp.st_mtime;
 	return (b - a);
 }
@@ -47,9 +55,9 @@ int			time_t_rev_cmp(char *s1, char *s2)
 	time_t					b;
 	static struct stat		tmp;
 
-	stat(s1, &tmp);
+	lstat(s1, &tmp);
 	a = tmp.st_mtime;
-	stat(s2, &tmp);
+	lstat(s2, &tmp);
 	b = tmp.st_mtime;
 	return (a - b);
 }
