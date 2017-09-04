@@ -91,7 +91,10 @@ typedef struct		s_stat
 	char			perm_str[11];
 	char			file_name[NAME_MAX];
 	char			path_name[PATH_MAX];
+	char			slink_path[PATH_MAX];
 	t_bool			is_root;
+	DIR				*link_dir;
+	struct dirent	*link_dirent;
 }					t_stat;
 
 typedef struct		s_ls

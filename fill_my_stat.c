@@ -96,7 +96,7 @@ t_bool		format_file_stat(struct stat *file_stat,
 		char *name, t_stat *my_stat)
 {
 	parse_date(file_stat, my_stat);
-	format_perm(file_stat, &my_stat->perm_str[0]);
+	format_perm(file_stat, my_stat->perm_str);
 	get_lnk_val(&file_stat->st_nlink, &my_stat->nlinks);
 	get_pwd_grp(file_stat, my_stat);
 	get_file_size(file_stat, my_stat);
