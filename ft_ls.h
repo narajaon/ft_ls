@@ -120,9 +120,13 @@ void				place_in_tree_time_t(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
 void				free_tree(t_tree *to_free);
 
+
 t_bool				valid_flag(char *av, t_lsflag *flags);
 void				get_file_name(char *name, char *pwd);
 t_bool				get_stats(char *file_name, t_ls *env);
+void				parse_date(struct stat *file_stat, t_stat *my_stat);
+void				format_perm(struct stat *file_stat, char *perm);
+
 
 t_bool				format_file_stat(struct stat *file_stat, char *name,
 		t_stat *my_stat);
@@ -149,4 +153,11 @@ void				recursive_print(t_tree *cur_dir, t_ls *env);
 void				print_args(t_tree *node, t_ls *env);
 void				print_short_a_opt(t_tree *node, t_ls *env);
 void				print_short(t_tree *node, t_ls *env);
+void				print_long(t_stat *my_stat, t_tree *node);
+void				print_long_a_opt(t_stat *my_stat, t_tree *node);
+
+
+void				*apply_node_placement(t_lsflag *flags);
+void				*apply_sort_opt(t_lsflag *flags);
+void				*apply_print_opt(t_lsflag *flags);
 #endif

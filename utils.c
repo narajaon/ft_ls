@@ -22,46 +22,6 @@ void		exit_error(int error, char opt, char *command)
 	}
 }
 
-int			ft_rev_strcmp(char *s1, char *s2)
-{
-	int i;
-
-	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if (s2[i] - s1[i])
-			return ((unsigned char)s2[i] - (unsigned char)s1[i]);
-		i++;
-	}
-	return (0);
-}
-
-int			time_t_cmp(char *s1, char *s2)
-{
-	time_t					a;
-	time_t					b;
-	static struct stat		tmp;
-
-	lstat(s1, &tmp);
-	a = tmp.st_mtime;
-	lstat(s2, &tmp);
-	b = tmp.st_mtime;
-	return (b - a);
-}
-
-int			time_t_rev_cmp(char *s1, char *s2)
-{
-	time_t					a;
-	time_t					b;
-	static struct stat		tmp;
-
-	lstat(s1, &tmp);
-	a = tmp.st_mtime;
-	lstat(s2, &tmp);
-	b = tmp.st_mtime;
-	return (a - b);
-}
-
 void		add_to_path(char *path, char *file_name)
 {
 	if (*path != 0 && path[ft_strlen(path) - 1] != '/')
@@ -93,4 +53,10 @@ void		get_file_name(char *name, char *pwd)
 		stop--;
 	stop += (pwd[stop] == '/') ? 1 : 0;
 	ft_strcpy(name, &pwd[stop]);
+}
+
+void		free_n_null(t_tree *to_free)
+{
+	free(to_free->content);
+	to_free = NULL;
 }

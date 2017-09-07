@@ -1,72 +1,5 @@
 #include "ft_ls.h"
 
-t_bool		is_symlink(t_stat *my_stat, t_tree *node)
-{
-	if (*my_stat->perm_str == 'l')
-	{
-		ft_strclr(my_stat->path_name);
-		readlink(node->content, my_stat->path_name, PATH_MAX);
-		ft_printf("%s% 4d %s  %s  %d %s %s %s %s -> %s\n",
-				my_stat->perm_str,
-				my_stat->nlinks, my_stat->pwd->pw_name,
-				my_stat->grp->gr_name, my_stat->size,
-				my_stat->date.month, my_stat->date.dayth,
-				my_stat->date.hour_min, my_stat->file_name,
-				my_stat->path_name);
-		return (TRUE);
-	}
-	return (FALSE);
-}
-
-void		print_short_a_opt(t_tree *node, t_ls *env)
-{
-	if (get_stats(node->content, env) == FALSE)
-		return ;
-	if (dir_file(env, node->content) == FALSE)
-		reg_file(env, node->content);
-	ft_printf("%s\n", env->my_stat.file_name);
-	free_n_null(node);
-}
-
-void		print_short(t_tree *node, t_ls *env)
-{
-	if (get_stats(node->content, env) == FALSE)
-		return ;
-	if (dir_file(env, node->content) == FALSE)
-		reg_file(env, node->content);
-	if (*env->my_stat.file_name != '.')
-		ft_printf("%s\n", env->my_stat.file_name);
-}
-
-void		print_long(t_stat *my_stat, t_tree *node)
-{
-	if (*my_stat->file_name != '.')
-	{
-		if (is_symlink(my_stat, node) == FALSE)
-		{
-			ft_printf("%s% 4d %s  %s  %d %s %s %s %s\n",
-					my_stat->perm_str,
-					my_stat->nlinks, my_stat->pwd->pw_name,
-					my_stat->grp->gr_name, my_stat->size,
-					my_stat->date.month, my_stat->date.dayth,
-					my_stat->date.hour_min, my_stat->file_name);
-		}
-	}
-}
-
-void		print_long_a_opt(t_stat *my_stat, t_tree *node)
-{
-	if (is_symlink(my_stat, node) == FALSE)
-	{
-		ft_printf("%s% 4d %s  %s  %d %s %s %s %s\n",
-				my_stat->perm_str,
-				my_stat->nlinks, my_stat->pwd->pw_name,
-				my_stat->grp->gr_name, my_stat->size,
-				my_stat->date.month, my_stat->date.dayth,
-				my_stat->date.hour_min, my_stat->file_name);
-	}
-}
-
 void		print_args(t_tree *node, t_ls *env)
 {
 	if (get_stats(node->content, env) == FALSE)
@@ -77,4 +10,44 @@ void		print_args(t_tree *node, t_ls *env)
 		print_long_a_opt(&env->my_stat, node);
 	else
 		print_long(&env->my_stat, node);
+}
+
+int			ft_rev_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s2[i] - s1[i])
+			return ((unsigned char)s2[i] - (unsigned char)s1[i]);
+		i++;
+	}
+	return (0);
+}
+
+int			time_t_cmp(char *s1, char *s2)
+{
+	time_t					a;
+	time_t					b;
+	static struct stat		tmp;
+
+	lstat(s1, &tmp);
+	a = tmp.st_mtime;
+	lstat(s2, &tmp);
+	b = tmp.st_mtime;
+	return (b - a);
+}
+
+int			time_t_rev_cmp(char *s1, char *s2)
+{
+	time_t					a;
+	time_t					b;
+	static struct stat		tmp;
+
+	lstat(s1, &tmp);
+	a = tmp.st_mtime;
+	lstat(s2, &tmp);
+	b = tmp.st_mtime;
+	return (a - b);
 }

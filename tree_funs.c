@@ -1,33 +1,6 @@
 #include "ft_ls.h"
 
-t_tree	*new_node(void *content, size_t content_size, int content_id)
-{
-	t_tree		*new;
-
-	new = (t_tree *)malloc(sizeof(t_tree));
-	new->content = ft_memalloc(content_size);
-	ft_memcpy(new->content, content, content_size);
-	new->content_size = content_size;
-	new->left = NULL;
-	new->right = NULL;
-	return (new);
-}
-
-t_tree	*dup_node(t_tree *node)
-{
-	t_tree		*dup;
-
-	dup = (t_tree *)malloc(sizeof(t_tree));
-	dup->content = ft_memalloc(node->content_size);
-	ft_memcpy(dup->content, node->content, node->content_size);
-	dup->content_size = node->content_size;
-	ft_strcpy(dup->content_name, node->content_name);
-	dup->left = NULL;
-	dup->right = NULL;
-	return (dup);
-}
-
-void	iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
+void		iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
 {
 	if (tree != NULL)
 	{
@@ -37,13 +10,7 @@ void	iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
 	}
 }
 
-void	free_n_null(t_tree *to_free)
-{
-	free(to_free->content);
-	to_free = NULL;
-}
-
-void	free_tree(t_tree *to_free)
+void		free_tree(t_tree *to_free)
 {
 	if (to_free != NULL)
 	{
@@ -54,44 +21,60 @@ void	free_tree(t_tree *to_free)
 	}
 }
 
-void	iter_node_infix(t_tree *tree, void (*fun)(), t_ls *env)
+void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)(),
+		void (*place_node)())
 {
-	if (tree != NULL)
+	t_tree		*new;
+
+	while (*av)
 	{
-		iter_node_infix(tree->left, fun, env);
-		fun(tree, env);
-		iter_node_infix(tree->right, fun, env);
+		if (ft_strcmp(*av, "/") != 0)
+			new = new_node(*av, ft_strlen(*av) + 1, 1);
+		else
+			new = new_node("/.", 3, 1);
+		get_file_name(new->content_name, *av);
+		place_node(new, tree, cmp);
+		free_n_null(new);
+		free(new);
+		av++;
 	}
 }
 
-void	place_in_tree(t_tree *new, t_tree **tree, int (*cmp)())
+DIR			*openable_dir(char *dir_name)
 {
-	int		ret;
+	DIR		*current_dir;
 
-	if (*tree == NULL)
-		*tree = dup_node(new);
-	else
+	if ((current_dir = opendir(dir_name)) == NULL)
 	{
-		ret = cmp(new->content_name, (*tree)->content_name);
-		if (ret < 0)
-			place_in_tree(new, &(*tree)->left, cmp);
-		else if (ret >= 0)
-			place_in_tree(new, &(*tree)->right, cmp);
+		exit_error(ERRDIR, 0, dir_name);
+		return (NULL);
 	}
+	return (current_dir);
 }
 
-void	place_in_tree_time_t(t_tree *new, t_tree **tree, int (*cmp)())
+t_tree		*create_new_tree(t_ls *env, char *dir_name, void (*place_node)())
 {
-	int		ret;
+	DIR					*current_dir;
+	struct dirent		*current_file;
+	t_tree				*new_leaf;
+	t_tree				*new_tree;
 
-	if (*tree == NULL)
-		*tree = dup_node(new);
-	else
+	new_tree = NULL;
+	if (!(current_dir = openable_dir(dir_name)))
+		return (NULL);
+	if (*env->my_stat.file_name == 0)
+		add_to_path(env->my_stat.path_name, dir_name);
+	while ((current_file = readdir(current_dir)) != NULL)
 	{
-		ret = cmp(new->content, (*tree)->content);
-		if (ret < 0)
-			place_in_tree_time_t(new, &(*tree)->left, cmp);
-		else if (ret >= 0)
-			place_in_tree_time_t(new, &(*tree)->right, cmp);
+		add_to_path(env->my_stat.path_name, current_file->d_name);
+		new_leaf = new_node(env->my_stat.path_name,
+				ft_strlen(env->my_stat.path_name) + 1, 1);
+		get_file_name(new_leaf->content_name, env->my_stat.path_name);
+		place_node(new_leaf, &new_tree, env->cmp);
+		remove_from_path(env->my_stat.path_name);
+		free_n_null(new_leaf);
+		free(new_leaf);
 	}
+	closedir(current_dir);
+	return (new_tree);
 }

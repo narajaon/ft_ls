@@ -25,7 +25,7 @@ void		fill_flag_struct(char *av, t_lsflag *flags)
 
 t_bool		is_flag(char flag)
 {
-	if ((flag == 'l') || (flag ==  'R') || (flag == 'a') ||
+	if ((flag == 'l') || (flag == 'R') || (flag == 'a') ||
 			(flag == 'r') || (flag == 't'))
 		return (TRUE);
 	return (FALSE);
