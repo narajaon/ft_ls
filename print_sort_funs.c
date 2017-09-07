@@ -6,7 +6,7 @@ t_bool		is_symlink(t_stat *my_stat, t_tree *node)
 	{
 		ft_strclr(my_stat->path_name);
 		readlink(node->content, my_stat->path_name, PATH_MAX);
-		printf("%s% 4d %s  %s  %d %s %s %s %s -> %s\n",
+		ft_printf("%s% 4d %s  %s  %d %s %s %s %s -> %s\n",
 				my_stat->perm_str,
 				my_stat->nlinks, my_stat->pwd->pw_name,
 				my_stat->grp->gr_name, my_stat->size,
@@ -18,21 +18,22 @@ t_bool		is_symlink(t_stat *my_stat, t_tree *node)
 	return (FALSE);
 }
 
-void		print_short_a_opt(char *file_name, t_ls *env)
+void		print_short_a_opt(t_tree *node, t_ls *env)
 {
-	if (get_stats(file_name, env) == FALSE)
+	if (get_stats(node->content, env) == FALSE)
 		return ;
-	if (dir_file(env, file_name) == FALSE)
-		reg_file(env, file_name);
+	if (dir_file(env, node->content) == FALSE)
+		reg_file(env, node->content);
 	ft_printf("%s\n", env->my_stat.file_name);
+	free_n_null(node);
 }
 
-void		print_short(char *file_name, t_ls *env)
+void		print_short(t_tree *node, t_ls *env)
 {
-	if (get_stats(file_name, env) == FALSE)
+	if (get_stats(node->content, env) == FALSE)
 		return ;
-	if (dir_file(env, file_name) == FALSE)
-		reg_file(env, file_name);
+	if (dir_file(env, node->content) == FALSE)
+		reg_file(env, node->content);
 	if (*env->my_stat.file_name != '.')
 		ft_printf("%s\n", env->my_stat.file_name);
 }
@@ -43,7 +44,7 @@ void		print_long(t_stat *my_stat, t_tree *node)
 	{
 		if (is_symlink(my_stat, node) == FALSE)
 		{
-			printf("%s% 4d %s  %s  %d %s %s %s %s\n",
+			ft_printf("%s% 4d %s  %s  %d %s %s %s %s\n",
 					my_stat->perm_str,
 					my_stat->nlinks, my_stat->pwd->pw_name,
 					my_stat->grp->gr_name, my_stat->size,
@@ -57,7 +58,7 @@ void		print_long_a_opt(t_stat *my_stat, t_tree *node)
 {
 	if (is_symlink(my_stat, node) == FALSE)
 	{
-		printf("%s% 4d %s  %s  %d %s %s %s %s\n",
+		ft_printf("%s% 4d %s  %s  %d %s %s %s %s\n",
 				my_stat->perm_str,
 				my_stat->nlinks, my_stat->pwd->pw_name,
 				my_stat->grp->gr_name, my_stat->size,

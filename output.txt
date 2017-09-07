@@ -1,2 +1,41 @@
-./ft_ls -lR /usr  1.62s user 1.02s system 71% cpu 3.682 total
-ls -G -lR /usr  1.18s user 1.03s system 75% cpu 2.928 total
+Process:         ft_ls [53563]
+Path:            /Users/narajaon/narajaon/ft_ls_perso/ft_ls
+Load Address:    0x108aef000
+Identifier:      ft_ls
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [28358]
+
+Date/Time:       2017-09-07 13:53:03.401 +0200
+Launch Time:     2017-09-07 13:53:00.404 +0200
+OS Version:      Mac OS X 10.11.6 (15G1611)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 8.2.1 (8C1002)
+----
+
+leaks Report Version:  2.0
+Process 53563: 273 nodes malloced for 46 KB
+Process 53563: 0 leaks for 0 total leaked bytes.
+
+
+
+Process:         ft_ls [53625]
+Path:            /Users/narajaon/narajaon/ft_ls_perso/ft_ls
+Load Address:    0x109463000
+Identifier:      ft_ls
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [28358]
+
+Date/Time:       2017-09-07 13:53:22.032 +0200
+Launch Time:     2017-09-07 13:53:16.195 +0200
+OS Version:      Mac OS X 10.11.6 (15G1611)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 8.2.1 (8C1002)
+----
+
+leaks Report Version:  2.0
+Process 53625: 1102 nodes malloced for 188 KB
+Process 53625: 0 leaks for 0 total leaked bytes.

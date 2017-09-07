@@ -91,7 +91,6 @@ typedef struct		s_stat
 	char			perm_str[11];
 	char			file_name[NAME_MAX];
 	char			path_name[PATH_MAX];
-	char			slink_path[PATH_MAX];
 	t_bool			is_root;
 	DIR				*link_dir;
 	struct dirent	*link_dirent;
@@ -114,11 +113,12 @@ t_tree				*new_node(void *content, size_t size, int content_id);
 t_tree				*dup_node(t_tree *node);
 void				iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env);
 void				iter_node_infix(t_tree *tree, void (*fun)(), t_ls *env);
-void				free_n_null(void *to_free);
+void				free_n_null(t_tree *to_free);
 void				place_in_tree(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
 void				place_in_tree_time_t(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
+void				free_tree(t_tree *to_free);
 
 t_bool				valid_flag(char *av, t_lsflag *flags);
 void				get_file_name(char *name, char *pwd);
@@ -145,9 +145,8 @@ t_tree				*create_new_tree(t_ls *env, char *dir_name,
 		void (*place_node)());
 
 
-void				print_short(char *file_name, t_ls *env);
 void				recursive_print(t_tree *cur_dir, t_ls *env);
 void				print_args(t_tree *node, t_ls *env);
-void				print_short_a_opt(char *file_name, t_ls *env);
-void				print_short(char *file_name, t_ls *env);
+void				print_short_a_opt(t_tree *node, t_ls *env);
+void				print_short(t_tree *node, t_ls *env);
 #endif

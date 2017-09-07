@@ -13,6 +13,7 @@ void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)(),
 			new = new_node("/.", 3, 1);
 		get_file_name(new->content_name, *av);
 		place_node(new, tree, cmp);
+		free_n_null(new);
 		free(new);
 		av++;
 	}
@@ -41,6 +42,7 @@ t_tree		*create_new_tree(t_ls *env, char *dir_name, void (*place_node)())
 		get_file_name(new_leaf->content_name, env->my_stat.path_name);
 		place_node(new_leaf, &new_tree, env->cmp);
 		remove_from_path(env->my_stat.path_name);
+		free_n_null(new_leaf);
 		free(new_leaf);
 	}
 	closedir(current_dir);
@@ -56,6 +58,9 @@ t_bool		can_open_dir(t_tree *cur_dir, t_ls *env)
 		(ft_strcmp(cur_dir->content_name, ".") == 0 ||
 		ft_strcmp(cur_dir->content_name, "..") == 0)))
 	{
+		if (*cur_dir->content_name == '.' && env->ls_flag.a_opt == 0 &&
+				env->my_stat.is_root == FALSE)
+			return (FALSE);
 		return (TRUE);
 	}
 	return (FALSE);
@@ -70,9 +75,6 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 			return ;
 	if (can_open_dir(cur_dir, env) == TRUE)
 	{
-		if (*cur_dir->content_name == '.' && env->ls_flag.a_opt == 0 &&
-				env->my_stat.is_root == FALSE)
-			return ;
 		ft_strcpy(env->my_stat.path_name, cur_dir->content);
 		ft_printf("\n%s:\n", cur_dir->content);
 		if ((current = create_new_tree(env, cur_dir->content,
@@ -84,7 +86,10 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 			recursive_print(current, env);
 		}
 		else
+		{
 			iter_node_infix(current, env->print, env);
+			free_tree(current);
+		}
 	}
 }
 
@@ -95,4 +100,5 @@ void		recursive_print(t_tree *cur_dir, t_ls *env)
 	current = NULL;
 	iter_node_infix(cur_dir, env->print, env);
 	iter_node_infix(cur_dir, &open_read_dir, env);
+	free_tree(cur_dir);
 }
