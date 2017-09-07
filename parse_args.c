@@ -84,7 +84,7 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 			recursive_print(current, env);
 		}
 		else
-			iter_tree_infix(current, env->print, env);
+			iter_node_infix(current, env->print, env);
 	}
 }
 
@@ -93,6 +93,6 @@ void		recursive_print(t_tree *cur_dir, t_ls *env)
 	t_tree		*current;
 
 	current = NULL;
-	iter_tree_infix(cur_dir, env->print, env);
+	iter_node_infix(cur_dir, env->print, env);
 	iter_node_infix(cur_dir, &open_read_dir, env);
 }

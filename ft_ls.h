@@ -147,7 +147,7 @@ t_tree				*create_new_tree(t_ls *env, char *dir_name,
 
 void				print_short(char *file_name, t_ls *env);
 void				recursive_print(t_tree *cur_dir, t_ls *env);
-void				print_args(char *file_name, t_ls *env);
+void				print_args(t_tree *node, t_ls *env);
 void				print_short_a_opt(char *file_name, t_ls *env);
 void				print_short(char *file_name, t_ls *env);
 #endif
