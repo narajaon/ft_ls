@@ -34,10 +34,12 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 	if (can_open_dir(cur_dir, env) == TRUE)
 	{
 		ft_strcpy(env->my_stat.path_name, cur_dir->content);
-		ft_printf("\n%s:\n", cur_dir->content);
 		if ((current = create_new_tree(env, cur_dir->content,
 						env->place_node)) == NULL)
 			return ;
+		ft_printf("\n%s:\ntotal %ld\n", cur_dir->content,
+				env->my_stat.blocks);
+		env->my_stat.blocks = 0;
 		if (env->ls_flag.capr_opt != 0)
 		{
 			env->my_stat.is_root = FALSE;
@@ -59,4 +61,15 @@ void		recursive_print(t_tree *cur_dir, t_ls *env)
 	iter_node_infix(cur_dir, env->print, env);
 	iter_node_infix(cur_dir, &open_read_dir, env);
 	free_tree(cur_dir);
+}
+
+void		free_tree(t_tree *to_free)
+{
+	if (to_free != NULL)
+	{
+		free_tree(to_free->left);
+		free_tree(to_free->right);
+		free(to_free->content);
+		free(to_free);
+	}
 }

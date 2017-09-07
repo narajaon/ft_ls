@@ -10,17 +10,6 @@ void		iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
 	}
 }
 
-void		free_tree(t_tree *to_free)
-{
-	if (to_free != NULL)
-	{
-		free_tree(to_free->left);
-		free_tree(to_free->right);
-		free(to_free->content);
-		free(to_free);
-	}
-}
-
 void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)(),
 		void (*place_node)())
 {
@@ -52,6 +41,15 @@ DIR			*openable_dir(char *dir_name)
 	return (current_dir);
 }
 
+long		get_total_blocks(char *file_name, struct stat *f_stat)
+{
+	long		total;
+
+	lstat(file_name, f_stat);
+	total = f_stat->st_blocks;
+	return (total);
+}
+
 t_tree		*create_new_tree(t_ls *env, char *dir_name, void (*place_node)())
 {
 	DIR					*current_dir;
@@ -70,6 +68,8 @@ t_tree		*create_new_tree(t_ls *env, char *dir_name, void (*place_node)())
 		new_leaf = new_node(env->my_stat.path_name,
 				ft_strlen(env->my_stat.path_name) + 1, 1);
 		get_file_name(new_leaf->content_name, env->my_stat.path_name);
+		env->my_stat.blocks += get_total_blocks(new_leaf->content,
+				&env->f_stat);
 		place_node(new_leaf, &new_tree, env->cmp);
 		remove_from_path(env->my_stat.path_name);
 		free_n_null(new_leaf);

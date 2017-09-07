@@ -16,6 +16,12 @@ void		get_file_size(struct stat *file_stat, t_stat *my_stat)
 	my_stat->size = file_stat->st_size;
 }
 
+void		get_maj_min(struct stat *file_stat, t_stat *my_stat)
+{
+	my_stat->major = major(file_stat->st_rdev);
+	my_stat->minor = minor(file_stat->st_rdev);
+}
+
 t_bool		format_file_stat(struct stat *file_stat,
 		char *name, t_stat *my_stat)
 {
@@ -24,6 +30,7 @@ t_bool		format_file_stat(struct stat *file_stat,
 	get_lnk_val(&file_stat->st_nlink, &my_stat->nlinks);
 	get_pwd_grp(file_stat, my_stat);
 	get_file_size(file_stat, my_stat);
+	get_maj_min(file_stat, my_stat);
 	ft_strcpy(my_stat->file_name, name);
 	return (TRUE);
 }

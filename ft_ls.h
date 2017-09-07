@@ -94,6 +94,9 @@ typedef struct		s_stat
 	t_bool			is_root;
 	DIR				*link_dir;
 	struct dirent	*link_dirent;
+	long int		blocks;
+	int				major;
+	int				minor;
 }					t_stat;
 
 typedef struct		s_ls

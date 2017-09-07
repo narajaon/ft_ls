@@ -20,6 +20,21 @@ void		print_short(t_tree *node, t_ls *env)
 		ft_printf("%s\n", env->my_stat.file_name);
 }
 
+t_bool		is_device(t_stat *my_stat, t_tree *node)
+{
+	if (*my_stat->perm_str == 'c' || *my_stat->perm_str == 'b')
+	{
+		ft_printf("%s% 3d %s  %s  % 3d,% 4d %s %s %s %s\n",
+				my_stat->perm_str,
+				my_stat->nlinks, my_stat->pwd->pw_name,
+				my_stat->grp->gr_name, my_stat->major, my_stat->minor,
+				my_stat->date.month, my_stat->date.dayth,
+				my_stat->date.hour_min, my_stat->file_name);
+		return (TRUE);
+	}
+	return (FALSE);
+}
+
 t_bool		is_symlink(t_stat *my_stat, t_tree *node)
 {
 	if (*my_stat->perm_str == 'l')
@@ -42,6 +57,8 @@ void		print_long(t_stat *my_stat, t_tree *node)
 {
 	if (*my_stat->file_name != '.')
 	{
+		if (is_device(my_stat, node) == TRUE)
+			return ;
 		if (is_symlink(my_stat, node) == FALSE)
 		{
 			ft_printf("%s% 4d %s  %s  %d %s %s %s %s\n",
@@ -58,6 +75,8 @@ void		print_long_a_opt(t_stat *my_stat, t_tree *node)
 {
 	if (is_symlink(my_stat, node) == FALSE)
 	{
+		if (is_device(my_stat, node) == TRUE)
+			return ;
 		ft_printf("%s% 4d %s  %s  %d %s %s %s %s\n",
 				my_stat->perm_str,
 				my_stat->nlinks, my_stat->pwd->pw_name,
