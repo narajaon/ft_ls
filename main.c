@@ -1,19 +1,5 @@
 #include "ft_ls.h"
 
-/*
- *	ft_printf("%s  %d %s  %s  %d %s %s %s %s\n", ls_env.my_stat.perm_str,
-			ls_env.my_stat.nlinks, ls_env.my_stat.pwd->pw_name,
-			ls_env.my_stat.grp->gr_name, ls_env.my_stat.size,
-			ls_env.my_stat.date.month, ls_env.my_stat.date.dayth,
-			ls_env.my_stat.date.hour_min, ls_env.cur_file->d_name);
-			*/
-/*
- *
-	ft_printf("l |%d| r |%d| a |%d| t |%d| R |%d|\n",
-			flags->l_opt, flags->r_opt, flags->a_opt,
-			flags->t_opt, flags->capr_opt);
-			*/
-
 t_bool		reg_file(t_ls *env, char *file_name)
 {
 	if (!S_ISDIR(env->f_stat.st_mode))

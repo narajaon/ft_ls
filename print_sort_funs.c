@@ -2,23 +2,18 @@
 
 t_bool		is_symlink(t_stat *my_stat, t_tree *node)
 {
-	static struct stat		f_stat;
-
 	if (*my_stat->perm_str == 'l')
 	{
-		stat(node->content, &f_stat);
+		ft_strclr(my_stat->path_name);
 		readlink(node->content, my_stat->path_name, PATH_MAX);
-		if (S_ISDIR(f_stat.st_mode))
-		{
-			printf("%s% 4d %s  %s  %d %s %s %s %s -> %s\n",
-					my_stat->perm_str,
-					my_stat->nlinks, my_stat->pwd->pw_name,
-					my_stat->grp->gr_name, my_stat->size,
-					my_stat->date.month, my_stat->date.dayth,
-					my_stat->date.hour_min, my_stat->file_name,
-					my_stat->path_name);
-			return (TRUE);
-		}
+		printf("%s% 4d %s  %s  %d %s %s %s %s -> %s\n",
+				my_stat->perm_str,
+				my_stat->nlinks, my_stat->pwd->pw_name,
+				my_stat->grp->gr_name, my_stat->size,
+				my_stat->date.month, my_stat->date.dayth,
+				my_stat->date.hour_min, my_stat->file_name,
+				my_stat->path_name);
+		return (TRUE);
 	}
 	return (FALSE);
 }
