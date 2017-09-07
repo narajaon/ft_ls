@@ -3,12 +3,12 @@
 t_bool		can_open_dir(t_tree *cur_dir, t_ls *env)
 {
 	if ((S_ISDIR(env->f_stat.st_mode) &&
-		(ft_strcmp(cur_dir->content_name, ".") != 0 &&
-		ft_strcmp(cur_dir->content_name, "..") != 0)) ||
-		(env->my_stat.is_root == TRUE &&
-		(ft_strcmp(cur_dir->content_name, ".") == 0 ||
-		ft_strcmp(cur_dir->content_name, "..") == 0)) ||
-		*env->my_stat.perm_str == 'l')
+				(ft_strcmp(cur_dir->content_name, ".") != 0 &&
+				 ft_strcmp(cur_dir->content_name, "..") != 0)) ||
+			(env->my_stat.is_root == TRUE &&
+			 (ft_strcmp(cur_dir->content_name, ".") == 0 ||
+			  ft_strcmp(cur_dir->content_name, "..") == 0)) ||
+			*env->my_stat.perm_str == 'l')
 	{
 		if (*cur_dir->content_name == '.' && env->ls_flag.a_opt == 0 &&
 				env->my_stat.is_root == FALSE)
@@ -24,6 +24,16 @@ t_bool		can_open_dir(t_tree *cur_dir, t_ls *env)
 	return (FALSE);
 }
 
+void		print_total(t_tree *dir, t_ls *env)
+{
+	if (env->ls_flag.l_opt != 0)
+	{
+		ft_printf("\n%s:\ntotal %ld\n", dir->content,
+				env->my_stat.blocks);
+	}
+	env->my_stat.blocks = 0;
+}
+
 void		open_read_dir(t_tree *cur_dir, t_ls *env)
 {
 	t_tree		*current;
@@ -37,9 +47,7 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 		if ((current = create_new_tree(env, cur_dir->content,
 						env->place_node)) == NULL)
 			return ;
-		ft_printf("\n%s:\ntotal %ld\n", cur_dir->content,
-				env->my_stat.blocks);
-		env->my_stat.blocks = 0;
+		print_total(cur_dir, env);
 		if (env->ls_flag.capr_opt != 0)
 		{
 			env->my_stat.is_root = FALSE;
