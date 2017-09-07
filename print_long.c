@@ -7,7 +7,6 @@ void		print_short_a_opt(t_tree *node, t_ls *env)
 	if (dir_file(env, node->content) == FALSE)
 		reg_file(env, node->content);
 	ft_printf("%s\n", env->my_stat.file_name);
-	free_n_null(node);
 }
 
 void		print_short(t_tree *node, t_ls *env)

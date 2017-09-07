@@ -62,9 +62,9 @@ void	place_in_tree_time_t(t_tree *new, t_tree **tree, int (*cmp)())
 	else
 	{
 		ret = cmp(new->content, (*tree)->content);
-		if (ret < 0)
+		if (ret <= 0)
 			place_in_tree_time_t(new, &(*tree)->left, cmp);
-		else if (ret >= 0)
+		else if (ret > 0)
 			place_in_tree_time_t(new, &(*tree)->right, cmp);
 	}
 }
