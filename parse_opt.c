@@ -7,6 +7,7 @@ void		init_opt_struct(t_lsflag *flags)
 	flags->a_opt = 0x04;
 	flags->t_opt = 0x08;
 	flags->capr_opt = 0x10;
+	flags->capt_opt = 0x20;
 }
 
 void		fill_flag_struct(char *av, t_lsflag *flags)
@@ -21,12 +22,14 @@ void		fill_flag_struct(char *av, t_lsflag *flags)
 		flags->mask |= flags->t_opt;
 	else if (*av == 'R')
 		flags->mask |= flags->capr_opt;
+	else if (*av == 'T')
+		flags->mask |= flags->capt_opt;
 }
 
 t_bool		is_flag(char flag)
 {
 	if ((flag == 'l') || (flag == 'R') || (flag == 'a') ||
-			(flag == 'r') || (flag == 't'))
+			(flag == 'r') || (flag == 't') || (flag == 'T'))
 		return (TRUE);
 	return (FALSE);
 }
@@ -56,5 +59,6 @@ t_bool		valid_flag(char *av, t_lsflag *flags)
 	flags->a_opt &= flags->mask;
 	flags->t_opt &= flags->mask;
 	flags->capr_opt &= flags->mask;
+	flags->capt_opt &= flags->mask;
 	return (TRUE);
 }

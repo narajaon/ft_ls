@@ -41,40 +41,35 @@ DIR			*openable_dir(char *dir_name)
 	return (current_dir);
 }
 
-long		get_total_blocks(char *file_name, struct stat *f_stat)
+void		get_blocks(long *blocks, char *file_name, struct stat *f_stat)
 {
-	long		total;
-
 	lstat(file_name, f_stat);
-	total = f_stat->st_blocks;
-	return (total);
+	*blocks = f_stat->st_blocks;
 }
 
 t_tree		*create_new_tree(t_ls *env, char *dir_name, void (*place_node)())
 {
-	DIR					*current_dir;
-	struct dirent		*current_file;
 	t_tree				*new_leaf;
 	t_tree				*new_tree;
 
 	new_tree = NULL;
-	if (!(current_dir = openable_dir(dir_name)))
+	if (!(env->cur_dir = openable_dir(dir_name)))
 		return (NULL);
 	if (*env->my_stat.file_name == 0)
 		add_to_path(env->my_stat.path_name, dir_name);
-	while ((current_file = readdir(current_dir)) != NULL)
+	while ((env->cur_file = readdir(env->cur_dir)) != NULL)
 	{
-		add_to_path(env->my_stat.path_name, current_file->d_name);
+		add_to_path(env->my_stat.path_name, env->cur_file->d_name);
 		new_leaf = new_node(env->my_stat.path_name,
 				ft_strlen(env->my_stat.path_name) + 1, 1);
 		get_file_name(new_leaf->content_name, env->my_stat.path_name);
-		env->my_stat.blocks += get_total_blocks(new_leaf->content,
-				&env->f_stat);
+		get_padding(&env->f_stat, &env->my_stat, env->my_stat.path_name,
+				new_leaf->content_name);
 		place_node(new_leaf, &new_tree, env->cmp);
 		remove_from_path(env->my_stat.path_name);
 		free_n_null(new_leaf);
 		free(new_leaf);
 	}
-	closedir(current_dir);
+	closedir(env->cur_dir);
 	return (new_tree);
 }

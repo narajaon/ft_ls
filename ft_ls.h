@@ -13,6 +13,15 @@
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
 
+#define KNRM  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
+
 #define ICI printf("ICI\n");
 #define LA printf("LA\n");
 #define NUM(x) printf(#x " = %d\n", x)
@@ -50,6 +59,7 @@ typedef struct		s_lsflag
 	int				r_opt;
 	int				a_opt;
 	int				t_opt;
+	int				capt_opt;
 	int				capr_opt;
 	int				mask;
 }					t_lsflag;
@@ -81,22 +91,34 @@ typedef struct		s_date
 	time_t			epoch;
 }					t_date;
 
+typedef struct		s_pad
+{
+	int				ui;
+	int				gr;
+	int				size;
+	int				name;
+	int				dev;
+}					t_pad;
+
 typedef struct		s_stat
 {
 	struct passwd	*pwd; //use w/ getpwuid()
 	struct group	*grp; //use w/ getgrgid()
 	t_date			date;
-	int				nlinks;
-	int				size;
-	char			perm_str[11];
-	char			file_name[NAME_MAX];
-	char			path_name[PATH_MAX];
-	t_bool			is_root;
-	DIR				*link_dir;
-	struct dirent	*link_dirent;
+	t_pad			padding;
 	long int		blocks;
 	int				major;
 	int				minor;
+	int				nlinks;
+	int				size;
+	t_bool			is_root;
+	char			perm_str[11];
+	char			file_name[NAME_MAX];
+	char			path_name[PATH_MAX];
+	DIR				*link_dir;
+	struct dirent	*link_dirent;
+	unsigned int	emoji;
+	char			colour[8];
 }					t_stat;
 
 typedef struct		s_ls
@@ -127,6 +149,8 @@ void				free_tree(t_tree *to_free);
 t_bool				valid_flag(char *av, t_lsflag *flags);
 void				get_file_name(char *name, char *pwd);
 t_bool				get_stats(char *file_name, t_ls *env);
+void				get_padding(struct stat *f_stat, t_stat *my_stat,
+		char *path, char *name);
 void				parse_date(struct stat *file_stat, t_stat *my_stat);
 void				format_perm(struct stat *file_stat, char *perm);
 
@@ -158,6 +182,7 @@ void				print_short_a_opt(t_tree *node, t_ls *env);
 void				print_short(t_tree *node, t_ls *env);
 void				print_long(t_stat *my_stat, t_tree *node);
 void				print_long_a_opt(t_stat *my_stat, t_tree *node);
+void				print_long_sec(t_stat *my_stat, t_tree *node);
 
 
 void				*apply_node_placement(t_lsflag *flags);

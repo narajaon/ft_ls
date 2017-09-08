@@ -28,6 +28,7 @@ void		ft_ls(char **av)
 
 	ls_env.ls_tree = NULL;
 	ls_env.ls_flag.mask = 0;
+	setlocale(LC_ALL, "");
 	while (valid_flag(*av, &ls_env.ls_flag) == TRUE)
 		av++;
 	ls_env.print = apply_print_opt(&ls_env.ls_flag);
@@ -43,6 +44,7 @@ void		ft_ls(char **av)
 
 int			main(int ac, char **av)
 {
+	ac = (int)ac;
 	ft_ls(&av[1]);
 	return (0);
 }

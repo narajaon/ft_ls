@@ -6,10 +6,13 @@ void		print_args(t_tree *node, t_ls *env)
 		return ;
 	if (dir_file(env, node->content) == FALSE)
 		reg_file(env, node->content);
-	if (env->ls_flag.l_opt != 0 && env->ls_flag.a_opt != 0)
+	if (env->ls_flag.capt_opt != 0 && env->ls_flag.a_opt != 0)
+		print_long_sec(&env->my_stat, node);
+	else if (env->ls_flag.l_opt != 0 && env->ls_flag.a_opt != 0)
 		print_long_a_opt(&env->my_stat, node);
 	else
 		print_long(&env->my_stat, node);
+	env->my_stat.emoji = 0;
 }
 
 int			ft_rev_strcmp(char *s1, char *s2)
