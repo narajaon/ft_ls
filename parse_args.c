@@ -26,10 +26,12 @@ t_bool		can_open_dir(t_tree *cur_dir, t_ls *env)
 
 void		print_total(t_tree *dir, t_ls *env)
 {
-	if (env->ls_flag.l_opt != 0)
+	if (env->ls_flag.l_opt != 0 || env->ls_flag.capr_opt != 0)
 	{
-		ft_printf("\n%s:\ntotal %ld\n", dir->content,
-				env->my_stat.blocks);
+		if (env->my_stat.is_root == FALSE)
+			ft_printf("\n%s:\n", dir->content);
+		if (env->ls_flag.l_opt != 0)
+			ft_printf("total %ld\n", env->my_stat.blocks);
 	}
 	env->my_stat.blocks = 0;
 }
