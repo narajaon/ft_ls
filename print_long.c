@@ -23,7 +23,7 @@ t_bool		is_device(t_stat *my_stat, t_tree *node)
 {
 	if (*my_stat->perm_str == 'c' || *my_stat->perm_str == 'b')
 	{
-		ft_printf("%s% 3d %s  %s  % 3d,% 4d %s %s %s %s\n",
+		ft_printf("%s% 4d %s  %s  % 3d,% 4d %s %s %s %s\n",
 				my_stat->perm_str,
 				my_stat->nlinks, my_stat->pwd->pw_name,
 				my_stat->grp->gr_name, my_stat->major, my_stat->minor,
