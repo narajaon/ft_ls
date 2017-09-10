@@ -6,7 +6,7 @@ PRINTF_LIB = libftprintf.a
 LIBFT_LIB = libft.a
 
 SRC = *.c
-FLAG = -g -O2
+FLAG = -lncurses -O2
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

@@ -29,6 +29,14 @@ void		get_emoji(t_stat *my_stat)
 		ft_strcpy(my_stat->colour, KMAG);
 	else if (*my_stat->perm_str == 'c' || *my_stat->perm_str == 'b')
 		ft_strcpy(my_stat->colour, KYEL);
+	else if (my_stat->perm_str[0] == 's')
+	{
+		ft_strcpy(my_stat->colour, KGRN);
+		my_stat->emoji = 0x1f50c;
+	}
+	else if (my_stat->perm_str[3] == 'x' || my_stat->perm_str[6] == 'x' ||
+			my_stat->perm_str[9] == 'x')
+		ft_strcpy(my_stat->colour, KRED);
 }
 
 t_bool		format_file_stat(struct stat *file_stat,

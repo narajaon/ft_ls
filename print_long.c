@@ -2,21 +2,42 @@
 
 void		print_short_a_opt(t_tree *node, t_ls *env)
 {
+	static int		curse[2];
+
 	if (get_stats(node->content, env) == FALSE)
 		return ;
 	if (dir_file(env, node->content) == FALSE)
 		reg_file(env, node->content);
-	ft_printf("%s\n", env->my_stat.file_name);
+	ft_printf("%s%s%s\n", env->my_stat.colour,
+			env->my_stat.file_name, KNRM);
 }
 
 void		print_short(t_tree *node, t_ls *env)
 {
+	static int		padding;
+	static int		col_nu;
+	int				total_col;
+
 	if (get_stats(node->content, env) == FALSE)
 		return ;
 	if (dir_file(env, node->content) == FALSE)
 		reg_file(env, node->content);
-	if (*env->my_stat.file_name != '.')
-		ft_printf("%s\n", env->my_stat.file_name);
+	total_col = env->my_stat.ws.ws_col / (env->my_stat.padding.name + 1);
+	padding = env->my_stat.padding.name;
+	if (*env->my_stat.file_name != '.' && col_nu < total_col)
+	{
+		ft_printf("%s%-*s%s",
+			env->my_stat.colour, padding + 3,
+			env->my_stat.file_name, KNRM);
+	}
+	else if (*env->my_stat.file_name != '.')
+	{
+		col_nu = 0;
+		ft_printf("%s%s%s\n",
+			env->my_stat.colour,
+			env->my_stat.file_name, KNRM);
+	}
+	col_nu++;
 }
 
 t_bool		is_device(t_stat *my_stat, t_tree *node)

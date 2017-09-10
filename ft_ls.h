@@ -10,8 +10,11 @@
 # include <time.h>
 # include <pwd.h>
 # include <grp.h>
+# include <termios.h>
+# include <sys/ioctl.h>
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
+# include <ncurses.h>
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -21,6 +24,8 @@
 #define KMAG  "\x1B[35m"
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
+
+#define S_ISTICKY(x) x & S_ISVTX
 
 #define ICI printf("ICI\n");
 #define LA printf("LA\n");
@@ -119,6 +124,7 @@ typedef struct		s_stat
 	struct dirent	*link_dirent;
 	unsigned int	emoji;
 	char			colour[8];
+	struct winsize	ws;
 }					t_stat;
 
 typedef struct		s_ls

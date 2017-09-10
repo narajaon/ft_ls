@@ -26,9 +26,9 @@ void		ft_ls(char **av)
 {
 	static t_ls		ls_env;
 
+	ioctl(0, TIOCGWINSZ, &ls_env.my_stat.ws);
 	ls_env.ls_tree = NULL;
 	ls_env.ls_flag.mask = 0;
-	setlocale(LC_ALL, "");
 	while (valid_flag(*av, &ls_env.ls_flag) == TRUE)
 		av++;
 	ls_env.print = apply_print_opt(&ls_env.ls_flag);
@@ -40,10 +40,13 @@ void		ft_ls(char **av)
 			ls_env.place_node);
 	ft_strcpy(ls_env.my_stat.path_name, ls_env.ls_tree->content);
 	recursive_print(ls_env.ls_tree, &ls_env);
+	if (ls_env.ls_flag.l_opt == 0)
+		ft_putchar('\n');
 }
 
 int			main(int ac, char **av)
 {
+	setlocale(LC_ALL, "");
 	ac = (int)ac;
 	ft_ls(&av[1]);
 	return (0);

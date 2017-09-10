@@ -67,6 +67,8 @@ void		u_perm(struct stat *file_stat, char *perm)
 			perm[i] = 'x';
 		i++;
 	}
+	if ((S_ISTICKY(file_stat->st_mode)) != 0)
+		perm[i - 1] = 't';
 	perm[i] = '\0';
 }
 
