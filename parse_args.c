@@ -4,11 +4,7 @@ t_bool		can_open_dir(t_tree *cur_dir, t_ls *env)
 {
 	if ((S_ISDIR(env->f_stat.st_mode) &&
 				(ft_strcmp(cur_dir->content_name, ".") != 0 &&
-				 ft_strcmp(cur_dir->content_name, "..") != 0)) ||
-			(env->my_stat.is_root == TRUE &&
-			 (ft_strcmp(cur_dir->content_name, ".") == 0 ||
-			  ft_strcmp(cur_dir->content_name, "..") == 0)) ||
-			*env->my_stat.perm_str == 'l')
+				ft_strcmp(cur_dir->content_name, "..") != 0)))
 	{
 		if (*cur_dir->content_name == '.' && env->ls_flag.a_opt == 0 &&
 				env->my_stat.is_root == FALSE)
@@ -28,7 +24,7 @@ void		print_total(t_tree *dir, t_ls *env)
 {
 	if (env->ls_flag.l_opt != 0 || env->ls_flag.capr_opt != 0)
 	{
-		ft_printf("\n%s:\n", dir->content);
+		ft_printf("%s:\n", dir->content);
 		if (env->ls_flag.l_opt != 0)
 			ft_printf("total %ld\n", env->my_stat.blocks);
 	}
@@ -48,7 +44,7 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 		if ((current = create_new_tree(env, cur_dir->content,
 						env->place_node)) == NULL)
 			return ;
-		ft_putchar('\n');
+		ft_putstr("\n");
 		print_total(cur_dir, env);
 		if (env->ls_flag.capr_opt != 0)
 		{
@@ -69,7 +65,8 @@ void		recursive_print(t_tree *cur_dir, t_ls *env)
 
 	current = NULL;
 	iter_node_infix(cur_dir, env->print, env);
-	iter_node_infix(cur_dir, &open_read_dir, env);
+	if (env->ls_flag.capr_opt != 0)
+		iter_node_infix(cur_dir, &open_read_dir, env);
 	free_tree(cur_dir);
 }
 

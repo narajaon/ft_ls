@@ -4,9 +4,8 @@ PRINTF_DIR = ft_printf
 LIBFT_DIR = libft
 PRINTF_LIB = libftprintf.a
 LIBFT_LIB = libft.a
-
 SRC = *.c
-FLAG = -lncurses -O2
+FLAG = -O3 -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

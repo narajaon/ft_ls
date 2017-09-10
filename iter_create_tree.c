@@ -1,6 +1,6 @@
 #include "ft_ls.h"
 
-t_tree	*new_node(void *content, size_t content_size, int content_id)
+t_tree	*new_node(void *content, size_t content_size)
 {
 	t_tree		*new;
 

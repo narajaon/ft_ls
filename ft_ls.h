@@ -16,24 +16,24 @@
 # include "libft/libft.h"
 # include <ncurses.h>
 
-#define KNRM  "\x1B[0m"
-#define KRED  "\x1B[31m"
-#define KGRN  "\x1B[32m"
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m"
-#define KMAG  "\x1B[35m"
-#define KCYN  "\x1B[36m"
-#define KWHT  "\x1B[37m"
+# define KNRM  "\x1B[0m"
+# define KRED  "\x1B[31m"
+# define KGRN  "\x1B[32m"
+# define KYEL  "\x1B[33m"
+# define KBLU  "\x1B[34m"
+# define KMAG  "\x1B[35m"
+# define KCYN  "\x1B[36m"
+# define KWHT  "\x1B[37m"
 
-#define S_ISTICKY(x) x & S_ISVTX
-#define YEAR_IN_SEC 31556926
+# define S_ISTICKY(x) x & S_ISVTX
+# define YEAR_IN_SEC 31556926
 
-#define ICI printf("ICI\n");
-#define LA printf("LA\n");
-#define NUM(x) printf(#x " = %d\n", x)
-#define CHAR(x) printf(#x " = %c\n", x)
-#define STR(x) printf(#x " = %s\n", x)
-#define EX exit(STR("ici"));
+# define ICI printf("ICI\n");
+# define LA printf("LA\n");
+# define NUM(x) printf(#x " = %d\n", x)
+# define CHAR(x) printf(#x " = %c\n", x)
+# define STR(x) printf(#x " = %s\n", x)
+# define EX exit(STR("ici"));
 
 //struct stat {
 //	dev_t     st_dev;      /* ID du périphérique contenant le fichier */
@@ -141,7 +141,7 @@ typedef struct		s_ls
 	void			(*place_node)();
 }					t_ls;
 
-t_tree				*new_node(void *content, size_t size, int content_id);
+t_tree				*new_node(void *content, size_t size);
 t_tree				*dup_node(t_tree *node);
 void				iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env);
 void				iter_node_infix(t_tree *tree, void (*fun)(), t_ls *env);
@@ -152,7 +152,6 @@ void				place_in_tree_time_t(t_tree *new_node,
 		t_tree **tree, int (*cmp)());
 void				free_tree(t_tree *to_free);
 
-
 t_bool				valid_flag(char *av, t_lsflag *flags);
 void				get_file_name(char *name, char *pwd);
 t_bool				get_stats(char *file_name, t_ls *env);
@@ -160,7 +159,6 @@ void				get_padding(struct stat *f_stat, t_stat *my_stat,
 		char *path, char *name);
 void				parse_date(struct stat *file_stat, t_stat *my_stat);
 void				format_perm(struct stat *file_stat, char *perm);
-
 
 t_bool				format_file_stat(struct stat *file_stat, char *name,
 		t_stat *my_stat);
@@ -174,7 +172,6 @@ void				get_file_name(char *name, char *pwd);
 t_bool				reg_file(t_ls *env, char *file_name);
 t_bool				dir_file(t_ls *env, char *file_name);
 
-
 void				place_files_in_tree(t_ls *env, char *dir_name,
 		int (*cmp)());
 void				place_args_in_tree(t_tree **tree,
@@ -182,15 +179,16 @@ void				place_args_in_tree(t_tree **tree,
 t_tree				*create_new_tree(t_ls *env, char *dir_name,
 		void (*place_node)());
 
-
 void				recursive_print(t_tree *cur_dir, t_ls *env);
+void				open_read_dir(t_tree *cur_dir, t_ls *env);
 void				print_args(t_tree *node, t_ls *env);
 void				print_short_a_opt(t_tree *node, t_ls *env);
 void				print_short(t_tree *node, t_ls *env);
 void				print_long(t_stat *my_stat, t_tree *node);
 void				print_long_a_opt(t_stat *my_stat, t_tree *node);
 void				print_long_sec(t_stat *my_stat, t_tree *node);
-
+void				print_total(t_tree *dir, t_ls *env);
+t_bool				is_device(t_stat *my_stat);
 
 void				*apply_node_placement(t_lsflag *flags);
 void				*apply_sort_opt(t_lsflag *flags);

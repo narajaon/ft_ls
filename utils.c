@@ -24,7 +24,7 @@ void		exit_error(int error, char opt, char *command)
 
 void		add_to_path(char *path, char *file_name)
 {
-	if (*path != 0 && path[ft_strlen(path) - 1] != '/')
+	if (*path != 0)
 		ft_strcat(path, "/");
 	ft_strcat(path, file_name);
 }

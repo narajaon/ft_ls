@@ -10,25 +10,6 @@ void		iter_tree_infix(t_tree *tree, void (*fun)(), t_ls *env)
 	}
 }
 
-void		place_args_in_tree(t_tree **tree, char **av, int (*cmp)(),
-		void (*place_node)())
-{
-	t_tree		*new;
-
-	while (*av)
-	{
-		if (ft_strcmp(*av, "/") != 0)
-			new = new_node(*av, ft_strlen(*av) + 1, 1);
-		else
-			new = new_node("/.", 3, 1);
-		get_file_name(new->content_name, *av);
-		place_node(new, tree, cmp);
-		free_n_null(new);
-		free(new);
-		av++;
-	}
-}
-
 DIR			*openable_dir(char *dir_name)
 {
 	DIR		*current_dir;
@@ -61,7 +42,7 @@ t_tree		*create_new_tree(t_ls *env, char *dir_name, void (*place_node)())
 	{
 		add_to_path(env->my_stat.path_name, env->cur_file->d_name);
 		new_leaf = new_node(env->my_stat.path_name,
-				ft_strlen(env->my_stat.path_name) + 1, 1);
+				ft_strlen(env->my_stat.path_name) + 1);
 		get_file_name(new_leaf->content_name, env->my_stat.path_name);
 		get_padding(&env->f_stat, &env->my_stat, env->my_stat.path_name,
 				new_leaf->content_name);

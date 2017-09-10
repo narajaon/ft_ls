@@ -18,8 +18,7 @@ void		parse_date(struct stat *file_stat, t_stat *my_stat)
 {
 	char		*formated;
 	char		*date;
-    time_t		mytime;
-	char		*myctime;
+	time_t		mytime;
 
 	date = ctime(&file_stat->st_mtime);
 	formated = (char *)malloc(ft_strlen(date));
