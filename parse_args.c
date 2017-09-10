@@ -48,6 +48,7 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 		if ((current = create_new_tree(env, cur_dir->content,
 						env->place_node)) == NULL)
 			return ;
+		ft_putchar('\n');
 		print_total(cur_dir, env);
 		if (env->ls_flag.capr_opt != 0)
 		{

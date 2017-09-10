@@ -22,12 +22,12 @@ void		print_short(t_tree *node, t_ls *env)
 		return ;
 	if (dir_file(env, node->content) == FALSE)
 		reg_file(env, node->content);
-	total_col = env->my_stat.ws.ws_col / (env->my_stat.padding.name + 1);
+	total_col = (env->my_stat.ws.ws_col / (env->my_stat.padding.name + 1)) + 3;
 	padding = env->my_stat.padding.name;
-	if (*env->my_stat.file_name != '.' && col_nu < total_col)
+	if (*env->my_stat.file_name != '.' && col_nu < total_col - 4)
 	{
 		ft_printf("%s%-*s%s",
-			env->my_stat.colour, padding + 3,
+			env->my_stat.colour, padding,
 			env->my_stat.file_name, KNRM);
 	}
 	else if (*env->my_stat.file_name != '.')
@@ -37,6 +37,8 @@ void		print_short(t_tree *node, t_ls *env)
 			env->my_stat.colour,
 			env->my_stat.file_name, KNRM);
 	}
+	else
+		col_nu = 0;
 	col_nu++;
 }
 
@@ -105,7 +107,7 @@ t_bool		is_symlink(t_stat *my_stat, t_tree *node)
 	{
 		ft_strclr(my_stat->path_name);
 		readlink(node->content, my_stat->path_name, PATH_MAX);
-		ft_printf("%s%4d %-*s  %-*s  %*d %s %2s %s %s%s%s %C  %s\n",
+		ft_printf("%s%4d %-*s  %-*s  %*d %s %2s %6s %s%s%s %C  %s\n",
 				my_stat->perm_str,
 				my_stat->nlinks, my_stat->padding.ui,
 				my_stat->pwd->pw_name, my_stat->padding.gr,
@@ -128,7 +130,7 @@ void		print_long(t_stat *my_stat, t_tree *node)
 			return ;
 		if (is_symlink(my_stat, node) == FALSE)
 		{
-			printf("%s%4d %-*s  %-*s  %*d %s %2s %s %s%-s%s %C\n",
+			printf("%s%4d %-*s  %-*s  %*d %s %2s %6s %s%-s%s %C\n",
 					my_stat->perm_str,
 					my_stat->nlinks, my_stat->padding.ui,
 					my_stat->pwd->pw_name, my_stat->padding.gr,

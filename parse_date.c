@@ -18,12 +18,17 @@ void		parse_date(struct stat *file_stat, t_stat *my_stat)
 {
 	char		*formated;
 	char		*date;
+    time_t		mytime;
+	char		*myctime;
 
 	date = ctime(&file_stat->st_mtime);
 	formated = (char *)malloc(ft_strlen(date));
 	ft_strncpy(formated, date, ft_strlen(date) - 1);
 	fill_date_struct(&my_stat->date, formated);
+	mytime = time(NULL);
 	my_stat->date.epoch = file_stat->st_mtime;
+	if (my_stat->date.epoch < mytime - YEAR_IN_SEC)
+		ft_strcpy(my_stat->date.hour_min, ft_itoa(my_stat->date.year));
 	free(formated);
 }
 

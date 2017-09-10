@@ -55,6 +55,6 @@ int			time_t_rev_cmp(char *s1, char *s2)
 	lstat(s2, &tmp);
 	b = tmp.st_mtime;
 	if (a == b)
-		return (ft_strcmp(s1, s2));
+		return (ft_rev_strcmp(s1, s2));
 	return (a - b);
 }

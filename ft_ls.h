@@ -26,6 +26,7 @@
 #define KWHT  "\x1B[37m"
 
 #define S_ISTICKY(x) x & S_ISVTX
+#define YEAR_IN_SEC 31556926
 
 #define ICI printf("ICI\n");
 #define LA printf("LA\n");
