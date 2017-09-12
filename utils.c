@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/12 16:22:09 by narajaon          #+#    #+#             */
+/*   Updated: 2017/09/12 16:22:11 by narajaon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
 void		exit_error(int error, char opt, char *command)
@@ -7,7 +19,7 @@ void		exit_error(int error, char opt, char *command)
 	if (error == USAGE)
 	{
 		ft_printf("ft_ls: illegal option -- %c\
-				\nusage: ft_ls [-lratR] [file ...]\n", opt);
+				\nusage: ft_ls [-lratRT] [file ...]\n", opt);
 		exit(1);
 	}
 	else if (error == ERRDIR)

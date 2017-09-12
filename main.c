@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/12 16:21:31 by narajaon          #+#    #+#             */
+/*   Updated: 2017/09/12 16:21:32 by narajaon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
 t_bool		get_stats(char *file_name, t_ls *env)
@@ -7,8 +19,7 @@ t_bool		get_stats(char *file_name, t_ls *env)
 		exit_error(WRONG_TYPE, 0, file_name);
 		return (FALSE);
 	}
-	format_file_stat(&env->f_stat, env->my_stat.file_name,
-			&env->my_stat);
+	format_file_stat(&env->f_stat, env->my_stat.file_name, &env->my_stat);
 	return (TRUE);
 }
 
@@ -24,11 +35,14 @@ char		**has_args(char **av)
 
 void		print_ar(char *av, t_ls *env)
 {
-	env->ls_tree = create_new_tree(env, av, env->place_node);
+	t_tree		*ls_tree;
+
+	if ((ls_tree = create_new_tree(env, av, env->place_node)) == NULL)
+		return ;
 	if (env->ls_flag.l_opt != 0)
-		print_total(env->ls_tree, env);
+		print_total(ls_tree, env);
 	ft_strcpy(env->my_stat.path_name, env->ls_tree->content);
-	recursive_print(env->ls_tree, env);
+	recursive_print(ls_tree, env);
 	ft_strclr(env->my_stat.file_name);
 	ft_strclr(env->my_stat.path_name);
 	if (env->ls_flag.l_opt == 0)
@@ -51,24 +65,23 @@ void		ft_ls(char **av)
 	ls_env.cmp = apply_sort_opt(&ls_env.ls_flag);
 	ls_env.place_node = apply_node_placement(&ls_env.ls_flag);
 	av = has_args(av);
-	while (*av)
+	while (*av != NULL)
 	{
 		new = new_node(*av, ft_strlen(*av));
 		place_in_tree(new, &ls_env.ls_tree, ls_env.cmp);
 		free(new->content);
 		free(new);
-		new = NULL;
 		av++;
 	}
 	ls_env.my_stat.is_root = TRUE;
 	iter_tree_infix(ls_env.ls_tree, &print_ar, &ls_env);
+	free_tree(ls_env.ls_tree);
 }
 
 int			main(int ac, char **av)
 {
 	setlocale(LC_ALL, "");
 	ac = (int)ac;
-	//while (1)
 	ft_ls(&av[1]);
 	return (0);
 }
