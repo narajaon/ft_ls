@@ -12,7 +12,7 @@ t_bool		can_open_dir(t_tree *cur_dir, t_ls *env)
 		if (*env->my_stat.perm_str == 'l' && env->my_stat.is_root == TRUE)
 		{
 			stat(cur_dir->content, &env->f_stat);
-			if (!S_ISDIR(env->f_stat.st_mode) || env->ls_flag.l_opt != 0)
+			if (!S_ISDIR(env->f_stat.st_mode))
 				return (FALSE);
 		}
 		return (TRUE);
@@ -22,6 +22,7 @@ t_bool		can_open_dir(t_tree *cur_dir, t_ls *env)
 
 void		print_total(t_tree *dir, t_ls *env)
 {
+	ft_putstr("\n");
 	if (env->ls_flag.l_opt != 0 || env->ls_flag.capr_opt != 0)
 	{
 		ft_printf("%s:\n", dir->content);
@@ -44,7 +45,8 @@ void		open_read_dir(t_tree *cur_dir, t_ls *env)
 		if ((current = create_new_tree(env, cur_dir->content,
 						env->place_node)) == NULL)
 			return ;
-		ft_putstr("\n");
+		if (env->ls_flag.capr_opt != 0 && env->ls_flag.l_opt == 0)
+			ft_putstr("\n");
 		print_total(cur_dir, env);
 		if (env->ls_flag.capr_opt != 0)
 		{
@@ -68,6 +70,7 @@ void		recursive_print(t_tree *cur_dir, t_ls *env)
 	if (env->ls_flag.capr_opt != 0)
 		iter_node_infix(cur_dir, &open_read_dir, env);
 	free_tree(cur_dir);
+	cur_dir = NULL;
 }
 
 void		free_tree(t_tree *to_free)

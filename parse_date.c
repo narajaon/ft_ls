@@ -27,7 +27,10 @@ void		parse_date(struct stat *file_stat, t_stat *my_stat)
 	mytime = time(NULL);
 	my_stat->date.epoch = file_stat->st_mtime;
 	if (my_stat->date.epoch < mytime - YEAR_IN_SEC)
-		ft_strcpy(my_stat->date.hour_min, ft_itoa(my_stat->date.year));
+	{
+		ft_strclr(my_stat->date.hour_min);
+		ft_itoa_str(my_stat->date.year, my_stat->date.hour_min);
+	}
 	free(formated);
 }
 

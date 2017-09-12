@@ -31,9 +31,10 @@ void		print_ar(char *av, t_ls *env)
 	recursive_print(env->ls_tree, env);
 	ft_strclr(env->my_stat.file_name);
 	ft_strclr(env->my_stat.path_name);
-	av++;
-	if (av != NULL)
-		ft_putstr("\n");
+	if (env->ls_flag.l_opt == 0)
+		ft_putstr("\n\n");
+	else
+		ft_putchar('\n');
 }
 
 void		ft_ls(char **av)
@@ -41,8 +42,6 @@ void		ft_ls(char **av)
 	static t_ls		ls_env;
 	t_tree			*new;
 
-	while (1)
-	{
 	ioctl(0, TIOCGWINSZ, &ls_env.my_stat.ws);
 	ls_env.ls_tree = NULL;
 	ls_env.ls_flag.mask = 0;
@@ -58,13 +57,11 @@ void		ft_ls(char **av)
 		place_in_tree(new, &ls_env.ls_tree, ls_env.cmp);
 		free(new->content);
 		free(new);
+		new = NULL;
 		av++;
 	}
 	ls_env.my_stat.is_root = TRUE;
 	iter_tree_infix(ls_env.ls_tree, &print_ar, &ls_env);
-	if (ls_env.ls_flag.l_opt == 0)
-		ft_putchar('\n');
-	}
 }
 
 int			main(int ac, char **av)
