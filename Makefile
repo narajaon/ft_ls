@@ -1,41 +1,77 @@
-NAME = ft_ls
-HEAD = ft_ls.h
-PRINTF_DIR = ft_printf
-LIBFT_DIR = libft
-PRINTF_LIB = libftprintf.a
-LIBFT_LIB = libft.a
-SRC = *.c
-FLAG = -O3 -Wall -Wextra -Werror
-OBJ = $(SRC:.c=.o)
+NAME:=ft_ls
+CC:=gcc
+
+RM:=/bin/rm -f
+MKDIR:=mkdir -p
+
+ifeq ($(DEBUG),yes)
+CFLAGS:=-g3 -fsanitize=address
+else
+CFLAGS:= -O2 -Wall -Wextra -Werror
+endif
+INC_D:=inc
+SCR_D:=src
+LIB_D:=lib
+OBJ_D:=obj
+HEAD =$(INC_D)/ft_ls.h
+
+INCLUDES = -I inc \
+		-I lib/ft_printf/inc \
+		-I lib/libft/inc \
+
+LIBRARIES = -L lib/ft_printf -lftprintf \
+			-L lib/libft -lft \
+			-lcurses
+
+ITEM = \
+    apply_fun_ptr.o\
+    fill_my_stat.o\
+    get_padding.o\
+    iter_create_tree.o\
+    main.o\
+    parse_args.o\
+    parse_date.o\
+    parse_opt.o\
+    print_long.o\
+    print_short.o\
+    print_sort_funs.o\
+    tree_funs.o\
+    utils.o
+
+OBJ:=$(addprefix $(OBJ_D)/, $(ITEM))
+
+vpath %.c src
+
+vpath %.h inc lib/libft/inc lib/ft_printf/inc
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(HEAD)
-	#@echo "Compiling \033[92m$(LIB)\033[0m..."
-	@make -C $(LIBFT_DIR)/
-	@make -C $(PRINTF_DIR)/
-	@gcc $(SRC) $(FLAG) $(PRINTF_DIR)/$(PRINTF_LIB)\
-		$(LIBFT_DIR)/$(LIBFT_LIB) -o $(NAME)
-	#@echo "$(NAME) compilation:\033[92m OK\033[0m"
+$(NAME): $(OBJ) $(HEAD) Makefile
+	@$(MAKE) -C lib/libft
+	@$(MAKE) -C lib/ft_printf
+	@$(CC) $(CFLAGS) -o $(NAME) $(INCLUDES) $(LIBRARIES) $(OBJ)
+
+./${OBJ_D}/%.o: %.c 
+	@$(MKDIR) $(OBJ_D)
+	@$(CC) $(CFLAGS) -c -o $@ $<  $(INCLUDES)
 
 clean:
-	@echo "Deleting:\033[33m $(PRINTF_LIB), $(LIBFT_LIB) and *.o\033[0m"
-	@rm -f $(OBJ)
-	@make -C $(LIBFT_DIR)/ clean
-	@make -C $(PRINTF_DIR)/ clean
+	@$(MAKE) -C lib/ft_printf clean
+	@$(MAKE) -C lib/libft clean
+	@$(RM) -r $(OBJ_D)
 
 fclean: clean
-	@echo "Deleting:\033[33m $(NAME)\033[0m"
-	@echo "Deleting:\033[33m $(PRINTF_LIB), $(LIBFT_LIB) and *.o\033[0m"
-	@rm -f $(NAME)
-	@make -C $(LIBFT_DIR)/ fclean
-	@make -C $(PRINTF_DIR)/ fclean
+	@$(MAKE) -C lib/ft_printf fclean
+	@$(MAKE) -C lib/libft fclean
+	@$(RM) $(NAME)
 
 re: fclean all
 
 git :
 	@git add .
 	@git commit -m "${MSG}"
+
+gitp : fclean git
 	git push
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re git gitp
